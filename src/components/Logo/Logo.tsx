@@ -6,7 +6,7 @@ export const Logo = () => {
         <div className='logo'>
             <a href='#home'>
                 <Image
-                    className='rounded-full w-12'
+                    className='rounded-full w-12 sm:w-14'
                     src={SmallLogo}
                     alt='logo'
                     priority
