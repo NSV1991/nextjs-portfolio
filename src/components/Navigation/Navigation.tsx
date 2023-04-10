@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import styles from './Navigation.module.scss';
 
 type NavItemProps = {
     text: string;
@@ -7,16 +8,16 @@ type NavItemProps = {
 
 const NavItem = ({ text, link }: NavItemProps) => {
     return (
-        <li className='font-semibold text-slate-500 hover:text-slate-900 lg:px-6 py-3 md:p-3'>
-            <Link href={link}>{text}</Link>
+        <li className='nav-item'>
+            <Link href={link} className='nav-link'>{text}</Link>
         </li>
     );
 };
 
 export const Navigation = () => {
     return (
-        <nav>
-            <ul className='hidden flex-row items-center sm:flex'>
+        <nav id='navigation' className={` d-none d-xl-block`}>
+            <ul className={`${styles.mainNav} nav-pills`}>
                 <NavItem text='Home' link='#home' />
                 <NavItem text='Experience' link='#experience' />
                 <NavItem text='Education' link='#education' />

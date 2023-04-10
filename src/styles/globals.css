@@ -1,9 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
-
-header {
-    font-size: 20px;
-}

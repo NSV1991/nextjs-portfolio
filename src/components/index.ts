@@ -1,3 +1,4 @@
+export * from './Banner/Banner';
 export * from './Card/Card';
 export * from './Header/Header';
 export * from './Logo/Logo';

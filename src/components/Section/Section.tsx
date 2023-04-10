@@ -1,6 +1,6 @@
 import { BlogCard } from '../Card/Card';
-import ReactHookImage from '../../assests/images/blogs/reactHooks.png';
-import VideoCall from '../../assests/images/blogs/videocall.jpeg';
+import ReactHookImage from '@assets/images/blogs/reactHooks.png';
+import VideoCall from '@assets/images/blogs/videocall.jpeg';
 
 export const Section = () => {
     const blogData = [

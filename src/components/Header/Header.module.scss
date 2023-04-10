@@ -1,0 +1,63 @@
+.fixedHeader {
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.header--sticky {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+.headerWrapper {
+    height: 122px;
+    padding: 0 64px;
+    align-items: center;
+    margin: 0;
+
+    .headerLeft {
+        justify-content: flex-start;
+        display: flex;
+    }
+
+    .headerCenter {
+        justify-content: flex-end;
+        display: flex;
+        align-items: center;
+    }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    .headerWrapper {
+        padding: 0 30px;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .headerWrapper {
+        padding: 0 30px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .headerWrapper {
+        padding: 0 30px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .headerWrapper {
+        padding: 0 20px;
+        height: 80px;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .headerWrapper {
+        padding: 0 3px;
+    }
+}
+@media only screen and (max-width: 479px) {
+    .headerWrapper {
+        padding: 0;
+    }
+}
