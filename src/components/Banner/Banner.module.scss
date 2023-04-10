@@ -1,0 +1,184 @@
+@import '@styles/variable.scss';
+
+.bannerContainer {
+    padding-bottom: 100px;
+    position: relative;
+
+    .banner {
+        padding-top: 210px;
+        display: flex;
+        justify-content: space-between;
+
+        .info {
+            transition: $secondaryTransition;
+
+            .topSection {
+                background: $primaryGradient;
+                box-shadow: $primaryShadow;
+                padding: 35px;
+                border-radius: 10px 10px 0 0;
+
+                .header {
+                    margin-bottom: 30px;
+
+                    .userIcon {
+                        position: relative;
+                        z-index: 1;
+                        width: 40px;
+                        height: 40px;
+                        margin-bottom: 20px;
+
+                        svg {
+                            width: 22px;
+                            height: auto;
+                            position: relative;
+                            color: #ffffff;
+                            top: 37%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            transition: $secondaryTransition;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            top: 0;
+                            left: 0;
+                            background: $primaryTextColor;
+                            opacity: 0.7;
+                            z-index: -1;
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            transition: $secondaryTransition;
+                            width: 60px;
+                            height: 60px;
+                            border-radius: 50%;
+                            top: 50%;
+                            left: 50%;
+                            background: $primaryTextColor;
+                            opacity: 0.2;
+                            z-index: -2;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+
+                    .title {
+                        color: $secondaryTextColor;
+                        font-weight: 700;
+                        font-size: 50px;
+                        line-height: 60px;
+                        margin-bottom: 10px;
+
+                        span {
+                            color: $primaryTextColor;
+                            padding: 0 10px;
+                        }
+                    }
+
+                    .subtitle {
+                        font-size: 16px;
+                        color: $secondaryTextColor;
+                        line-height: 24px;
+                    }
+                }
+
+                .userInfo {
+                    display: flex;
+                    margin-bottom: 12px;
+
+                    svg {
+                        color: $primaryTextColor;
+                        margin-right: 10px;
+                    }
+
+                    span {
+                        color: $secondaryTextColor;
+                        font-size: 16px;
+                    }
+                }
+
+                .socialInfo {
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                    padding-top: 20px;
+                    margin-top: 50px !important;
+
+                    .title {
+                        font-size: $tertiaryFontSize;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        font-weight: $font-500;
+                        color: $secondaryTextColor;
+                        display: inline-block;
+                        margin-bottom: 20px;
+                    }
+
+                    .iconWrapper {
+                        display: flex;
+                        margin: 0 -15px 0 0;
+                        flex-wrap: wrap;
+                        padding: 0;
+                        list-style: none;
+
+                        li {
+                            margin: 0 15px 15px 0;
+
+                            a {
+                                background: $primaryGradient;
+                                box-shadow: $primaryShadow;
+                                width: 50px;
+                                height: 50px;
+                                line-height: 50px;
+                                display: inline-block;
+                                text-align: center;
+                                font-size: 14px;
+                                letter-spacing: 2px;
+                                text-transform: uppercase;
+                                border-radius: 6px;
+                                transition: $primaryTransition;
+                                position: relative;
+                                z-index: 1;
+
+                                &:hover {
+                                    background: $secondaryGradient;
+                                    transform: translateY(-5px);
+
+                                    svg {
+                                        color: $white;
+                                    }
+                                }
+
+                                &::before {
+                                    background: $secondaryGradient;
+                                    content: '';
+                                    position: absolute;
+                                    transition: $primaryTransition;
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 6px;
+                                    top: 0;
+                                    left: 0;
+                                    opacity: 0;
+                                    z-index: -1;
+                                }
+
+                                svg {
+                                    color: rgba(0, 0, 0, 0.384);
+                                    stroke-width: 2;
+                                    position: relative;
+                                    z-index: 2;
+                                    width: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

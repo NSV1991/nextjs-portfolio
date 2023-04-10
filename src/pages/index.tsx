@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Banner, Header, Section } from '@/components';
+import { Banner, Header } from '@/components';
 import AOS from 'aos';
 import { useEffect } from 'react';
 
@@ -24,7 +24,7 @@ export default function Home() {
             <Header />
             <main>
                 <Banner />
-                <Section />
+                {/* <Section /> */}
             </main>
         </>
     );

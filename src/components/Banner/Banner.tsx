@@ -1,103 +1,66 @@
 import Image from 'next/image';
-import HeroImage from '../../assests/images/neeraj-banner.png';
+import HeroImage from '@assets/images/neeraj-banner.png';
+import styles from './Banner.module.scss';
+import GitHubIcon from '@assets/images/icons/github';
+import UserIcon from '@assets/images/icons/user';
+import TwitterIcon from '@assets/images/icons/twitter';
+import LinkedInIcon from '@assets/images/icons/linkedIn';
+import MapPinIcon from '@assets/images/icons/mapPin';
+import MailIcon from '@assets/images/icons/mail';
+import FileIcon from '@assets/images/icons/file';
 
 const HeroDetailsSection = () => {
     return (
         <div className='order-2 order-xl-1 col-lg-12 col-xl-5 mt_lg--50 mt_md--50 mt_sm--50'>
-            <div className='slider-info'>
+            <div className={styles.info}>
                 <div className='row'>
                     <div className='col-xl-12 col-lg-12 col-12'>
-                        <div className='user-info-top'>
-                            <div className='user-info-header'>
-                                <div className='user'>
-                                    <i data-feather='user'></i>
+                        <div className={styles.topSection}>
+                            <div className={styles.header}>
+                                <div className={styles.userIcon}>
+                                    <UserIcon />
                                 </div>
-                                <h2 className='title'>
+                                <h2 className={styles.title}>
                                     Hi, I'm
                                     <span>Neeraj Sarang Vageele</span>
                                 </h2>
-                                <p className='disc'>
+                                <p className={styles.subtitle}>
                                     Senior Software Engineer working for Apexon
                                     in Gujarat, India.
                                 </p>
                             </div>
-                            <div className='user-info-footer'>
-                                <div className='info'>
-                                    <i data-feather='file'></i>
+                            <div>
+                                <div className={styles.userInfo}>
+                                    <FileIcon />
                                     <span>
                                         Full Stack developer (JavaScript)
                                     </span>
                                 </div>
-                                <div className='info'>
-                                    <i data-feather='mail'></i>
+                                <div className={styles.userInfo}>
+                                    <MailIcon />
                                     <span>neerajvageele451@gmail.com</span>
                                 </div>
-                                <div className='info'>
-                                    <i data-feather='map-pin'></i>
+                                <div className={styles.userInfo}>
+                                    <MapPinIcon />
                                     <span>Gujarat, India</span>
                                 </div>
                             </div>
-                            <div className='social-share-style-1 mt--40'>
-                                <span className='title'>find me</span>
-                                <ul className='social-share d-flex liststyle'>
+                            <div className={styles.socialInfo}>
+                                <span className={styles.title}>find me</span>
+                                <ul className={styles.iconWrapper}>
                                     <li className='twitter'>
                                         <a href='https://twitter.com/vageele'>
-                                            <svg
-                                                xmlns='http://www.w3.org/2000/svg'
-                                                width='24'
-                                                height='24'
-                                                viewBox='0 0 24 24'
-                                                fill='none'
-                                                stroke='currentColor'
-                                                stroke-width='2'
-                                                stroke-linecap='round'
-                                                stroke-linejoin='round'
-                                                className='feather feather-twitter'>
-                                                <path d='M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z'></path>
-                                            </svg>
+                                            <TwitterIcon />
                                         </a>
                                     </li>
                                     <li className='github'>
                                         <a href='https://github.com/NSV1991'>
-                                            <svg
-                                                xmlns='http://www.w3.org/2000/svg'
-                                                width='24'
-                                                height='24'
-                                                viewBox='0 0 24 24'
-                                                fill='none'
-                                                stroke='currentColor'
-                                                stroke-width='2'
-                                                stroke-linecap='round'
-                                                stroke-linejoin='round'
-                                                className='feather feather-github'>
-                                                <path d='M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22'></path>
-                                            </svg>
+                                            <GitHubIcon />
                                         </a>
                                     </li>
                                     <li className='linkedin'>
                                         <a href='https://www.linkedin.com/in/neeraj-vageele-ba3801148/'>
-                                            <svg
-                                                xmlns='http://www.w3.org/2000/svg'
-                                                width='24'
-                                                height='24'
-                                                viewBox='0 0 24 24'
-                                                fill='none'
-                                                stroke='currentColor'
-                                                stroke-width='2'
-                                                stroke-linecap='round'
-                                                stroke-linejoin='round'
-                                                className='feather feather-linkedin'>
-                                                <path d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'></path>
-                                                <rect
-                                                    x='2'
-                                                    y='9'
-                                                    width='4'
-                                                    height='12'></rect>
-                                                <circle
-                                                    cx='4'
-                                                    cy='4'
-                                                    r='2'></circle>
-                                            </svg>
+                                            <LinkedInIcon />
                                         </a>
                                     </li>
                                 </ul>
@@ -143,9 +106,13 @@ const HeroImageSection = () => {
 
 export const Banner = () => {
     return (
-        <div id='home' className='relative pb-24 flex flex-row justify-between flex-wrap px-10'>
-            <HeroDetailsSection />
-            <HeroImageSection />
+        <div id='home' className={`${styles.bannerContainer}`}>
+            <div className='container'>
+                <div className={`row ${styles.banner}`}>
+                    <HeroDetailsSection />
+                    <HeroImageSection />
+                </div>
+            </div>
         </div>
     );
 };
