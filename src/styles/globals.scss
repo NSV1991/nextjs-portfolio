@@ -1,0 +1,18 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import '../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import './variable.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+ul li {
+    font-size: $primaryFontSize;
+    line-height: $primaryLineHeight;
+    margin: 10px 0;
+    color: $bodyColor;
+}

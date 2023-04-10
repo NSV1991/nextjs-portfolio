@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Header, Section } from '@/components';
+import { Banner, Header, Section } from '@/components';
 import AOS from 'aos';
 import { useEffect } from 'react';
 
@@ -22,7 +22,10 @@ export default function Home() {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Header />
-            <Section />
+            <main>
+                <Banner />
+                <Section />
+            </main>
         </>
     );
 }
