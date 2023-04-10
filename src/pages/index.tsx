@@ -1,10 +1,12 @@
 import Head from 'next/head';
-import { Inter } from 'next/font/google';
-import { Header } from '@/components';
-
-const inter = Inter({ subsets: ['latin'] });
+import { Header, Section } from '@/components';
+import AOS from 'aos';
+import { useEffect } from 'react';
 
 export default function Home() {
+    useEffect(() => {
+        AOS.init();
+    }, []);
     return (
         <>
             <Head>
@@ -20,6 +22,7 @@ export default function Home() {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Header />
+            <Section />
         </>
     );
 }
