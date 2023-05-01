@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import { Banner, Header } from '@/components';
 import AOS from 'aos';
 import { useEffect } from 'react';
+import { Banner, Header } from '@components/index';
 
 export default function Home() {
     useEffect(() => {

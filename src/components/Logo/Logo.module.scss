@@ -1,9 +1,8 @@
 .logoImage {
-    -ms-interpolation-mode: bicubic;
     border: 0;
     vertical-align: middle;
     width: 25%;
-    max-width: 100%;
+    min-width: 50px;
     height: auto;
     transition: 0.3s;
 }
