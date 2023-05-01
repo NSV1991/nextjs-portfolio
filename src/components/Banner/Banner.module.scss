@@ -109,7 +109,7 @@
                     margin-top: 50px !important;
 
                     .title {
-                        font-size: $tertiaryFontSize;
+                        font-size: $font-16;
                         text-transform: uppercase;
                         letter-spacing: 2px;
                         font-weight: $font-500;
@@ -140,7 +140,7 @@
                                 letter-spacing: 2px;
                                 text-transform: uppercase;
                                 border-radius: 6px;
-                                transition: $primaryTransition;
+                                transition: $secondaryTransition;
                                 position: relative;
                                 z-index: 1;
 
@@ -157,7 +157,7 @@
                                     background: $secondaryGradient;
                                     content: '';
                                     position: absolute;
-                                    transition: $primaryTransition;
+                                    transition: $secondaryTransition;
                                     width: 100%;
                                     height: 100%;
                                     border-radius: 6px;
@@ -168,7 +168,7 @@
                                 }
 
                                 svg {
-                                    color: rgba(0, 0, 0, 0.384);
+                                    color: $secondaryTextColor;
                                     stroke-width: 2;
                                     position: relative;
                                     z-index: 2;
@@ -177,6 +177,67 @@
                             }
                         }
                     }
+                }
+            }
+
+            .userInfoFooter {
+                margin-top: 30px;
+                background: $primaryGradient;
+                box-shadow: $primaryShadow;
+                padding: 35px;
+                border-radius: 0 0 10px 10px;
+
+                > span {
+                    color: $textLight;
+                    font-size: $font-16;
+                }
+
+                > div {
+                    margin-top: 30px;
+
+                    > a {
+                        display: inline-block;
+                        padding: 15px 35px;
+                        list-style: none;
+                        text-decoration: none;
+                        border-radius: 6px;
+                        background: $primaryGradient;
+                        box-shadow: $primaryShadow;
+                        transition: $secondaryTransition;
+                        position: relative;
+                        z-index: 2;
+                        font-size: $font-14;
+                        font-weight: $font-500;
+                        border: 0 none;
+                        margin-right: 30px;
+
+                        &:hover {
+                            background: $secondaryGradient;
+                            color: $white;
+                            transform: translateY(-5px);
+                        }
+                    }
+                }
+            }
+        }
+
+        .imageSection {
+            padding: 35px;
+            box-shadow: $primaryShadow;
+            position: relative;
+            right: 0;
+            border-radius: 10px;
+            transition: $secondaryTransition;
+            height: 100%;
+
+            > div {
+                height: 100%;
+
+                > img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 8px;
+                    object-fit: cover;
                 }
             }
         }

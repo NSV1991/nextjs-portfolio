@@ -11,7 +11,7 @@
 }
 
 body {
-    font-size: $primaryFontSize;
+    font-size: $font-18;
     line-height: $primaryLineHeight;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -21,7 +21,7 @@ body {
 }
 
 p {
-    font-size: $secondaryFontSize;
+    font-size: $font-24;
     line-height: $secondaryLineHeight;
     font-weight: $font-400;
     color: $secondaryTextColor;
@@ -33,7 +33,7 @@ p {
 }
 
 ul li {
-    font-size: $primaryFontSize;
+    font-size: $font-18;
     line-height: $primaryLineHeight;
     margin: 10px 0;
     color: $bodyColor;
