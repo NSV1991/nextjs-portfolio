@@ -1,0 +1,79 @@
+@import '@styles/variable.scss';
+
+.experienceSection {
+    position: relative;
+    padding: 100px 0;
+
+    &::after {
+        background: $separatorColor;
+        position: absolute;
+        max-width: 1280px;
+        height: 1px;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+
+    .subtitle {
+        color: $primaryTextColor;
+        letter-spacing: 2px;
+        display: block;
+        line-height: 14px;
+        font-weight: $font-500;
+        text-transform: uppercase;
+        font-size: $font-14;
+    }
+
+    .experienceDetails {
+        background: $primaryGradient;
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        box-shadow: $primaryShadow;
+        border-radius: 10px;
+        margin: 40px auto 0;
+        width: 90%;
+
+        .experienceImage {
+            max-width: 250px;
+            height: auto;
+            border-radius: 8px;
+            transition: $secondaryTransition;
+            overflow: hidden;
+
+            > img {
+                border-radius: 8px;
+                transition: $secondaryTransition;
+            }
+        }
+
+        .experienceInfo {
+            padding-left: 30px;
+
+            > span {
+                padding: 2px 8px;
+                border-radius: 20px;
+                font-size: 14px;
+                background-color: $primaryTextColor;
+                color: $white;
+            }
+
+            > h4 {
+                margin-top: 10px;
+                font-size: $font-24;
+                color: $secondaryTextColor;
+            }
+
+            > h6 {
+                margin-top: 15px;
+                font-size: $font-20;
+                font-weight: $font-400;
+                margin-bottom: 10px;
+                line-height: 1.5;
+                color: $bodyColor;
+            }
+        }
+    }
+}

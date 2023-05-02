@@ -1,8 +1,8 @@
-import { BlogCard } from '../Card/Card';
+import { BlogCard } from '../../Card/Card';
 import ReactHookImage from '@assets/images/blogs/reactHooks.png';
 import VideoCall from '@assets/images/blogs/videocall.jpeg';
 
-export const Section = () => {
+export const BlogSection = () => {
     const blogData = [
         {
             image: VideoCall,
@@ -48,12 +48,7 @@ export const Section = () => {
 
     return (
         <div className='flex justify-center items-center flex-col'>
-            <div
-                data-aos='fade-up'
-                data-aos-duration='500'
-                data-aos-delay='100'
-                data-aos-once='true'
-                className='flex justify-center items-center'>
+            <div className='flex justify-center items-center'>
                 <h1 className='text-6xl font-bold'>My Blogs</h1>
             </div>
             <div className='mt-8 px-10 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]'>
