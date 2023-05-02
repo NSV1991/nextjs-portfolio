@@ -1,0 +1,44 @@
+@import '@styles/variable.scss';
+
+.sectionSeparator {
+    position: relative;
+    padding: 100px 0;
+
+    &::after {
+        position: absolute;
+        max-width: 1280px;
+        height: 1px;
+        background: $separatorColor;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+
+    .subtitle {
+        color: $primaryTextColor;
+        letter-spacing: 2px;
+        display: block;
+        line-height: 14px;
+        font-weight: $font-700;
+        text-transform: uppercase;
+        font-size: $font-14;
+    }
+}
+
+.blogContainer {
+    margin: 30px -25px 0 -25px;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    .blogContainer {
+        margin: 30px -15px 0 -15px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .blogContainer {
+        margin: 10px -15px 0 -15px;
+    }
+}

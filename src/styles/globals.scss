@@ -63,6 +63,12 @@ ul li {
     margin-top: 10px;
 }
 
+a {
+    color: $white;
+    text-decoration: none;
+    outline: none;
+}
+
 h2 {
     font-size: 60px;
     font-weight: $font-700;

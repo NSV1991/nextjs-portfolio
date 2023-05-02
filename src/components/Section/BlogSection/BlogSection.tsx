@@ -1,10 +1,12 @@
 import { BlogCard } from '../../Card/Card';
 import ReactHookImage from '@assets/images/blogs/reactHooks.png';
 import VideoCall from '@assets/images/blogs/videocall.jpeg';
+import styles from './BlogSection.module.scss';
 
 export const BlogSection = () => {
     const blogData = [
         {
+            id: 1,
             image: VideoCall,
             category: 'React | WebEx',
             readTime: '3',
@@ -13,6 +15,7 @@ export const BlogSection = () => {
                 'https://medium.com/@neerajvageele451/video-call-using-webex-by-cisco-in-reactjs-b90de2769078',
         },
         {
+            id: 2,
             image: ReactHookImage,
             category: 'React',
             readTime: '2',
@@ -21,6 +24,7 @@ export const BlogSection = () => {
                 'https://medium.com/@neerajvageele451/how-does-react-usestate-hook-works-56288eea8fcf',
         },
         {
+            id: 3,
             image: ReactHookImage,
             category: 'React',
             readTime: '2',
@@ -29,6 +33,7 @@ export const BlogSection = () => {
                 'https://medium.com/@neerajvageele451/how-does-react-usestate-hook-works-56288eea8fcf',
         },
         {
+            id: 4,
             image: ReactHookImage,
             category: 'React',
             readTime: '2',
@@ -37,6 +42,7 @@ export const BlogSection = () => {
                 'https://medium.com/@neerajvageele451/how-does-react-usestate-hook-works-56288eea8fcf',
         },
         {
+            id: 5,
             image: ReactHookImage,
             category: 'React',
             readTime: '2',
@@ -47,14 +53,18 @@ export const BlogSection = () => {
     ];
 
     return (
-        <div className='flex justify-center items-center flex-col'>
-            <div className='flex justify-center items-center'>
-                <h1 className='text-6xl font-bold'>My Blogs</h1>
-            </div>
-            <div className='mt-8 px-10 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]'>
-                <div className='p-5 grid grid-cols-1 lg:grid-cols-2 gap-4 xl:grid-cols-3'>
+        <div className={styles.sectionSeparator}>
+            <div className='container'>
+                <div className='row'>
+                    <div className='col-lg-12 text-center'>
+                        <span className={styles.subtitle}>Blogs</span>
+                        <h2 className='text-6xl font-bold'>My Blogs</h2>
+                    </div>
+                </div>
+                <div className={`row ${styles.blogContainer}`}>
                     {blogData.map((data) => (
                         <BlogCard
+                            key={data.id}
                             image={data.image}
                             category={data.category}
                             readTime={data.readTime}
