@@ -24,8 +24,9 @@
             > img {
                 width: 100%;
                 transition: $secondaryTransition;
-                height: auto;
+                height: 250px;
                 object-fit: cover;
+                min-height: 250px;
             }
         }
 
@@ -40,7 +41,8 @@
                 .category {
                     display: flex;
                     flex-wrap: wrap;
-                    align-items: center;
+                    align-items: flex-start;
+                    min-height: 40px;
 
                     > p {
                         color: $primaryTextColor;
@@ -49,22 +51,6 @@
                         letter-spacing: 1px;
                         text-transform: uppercase;
                         display: block;
-                    }
-                }
-
-                .readTime {
-                    display: flex;
-                    align-items: flex-start;
-                    > span {
-                        color: $textLight;
-                        font-size: $font-14;
-                        font-weight: $font-600;
-
-                        > svg {
-                            margin: -2px 5px 0 0;
-                            transition: $secondaryTransition;
-                            color: $secondaryTextColor;
-                        }
                     }
                 }
             }

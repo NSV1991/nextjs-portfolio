@@ -1,12 +1,10 @@
 import Image, { StaticImageData } from 'next/image';
 import { FunctionComponent } from 'react';
 import styles from './Card.module.scss';
-import ClockIcon from '@assets/images/icons/clock';
 
 type BlogCardProps = {
     image: StaticImageData | string;
     category: string;
-    readTime: string;
     title: string;
     blogUrl: string;
 };
@@ -14,7 +12,6 @@ type BlogCardProps = {
 export const BlogCard: FunctionComponent<BlogCardProps> = ({
     image,
     category,
-    readTime,
     title,
     blogUrl,
 }: BlogCardProps) => {
@@ -24,18 +21,19 @@ export const BlogCard: FunctionComponent<BlogCardProps> = ({
             <div className={styles.container}>
                 <div>
                     <div className={styles.image}>
-                        <Image src={image} alt={title} />
+                        <Image
+                            src={image}
+                            alt={title}
+                            width={1400}
+                            height={1054}
+                            loader={({ src }) => src}
+                            style={{ objectFit: 'fill' }}
+                        />
                     </div>
                     <div className={styles.content}>
                         <div className={styles.blogDetails}>
                             <div className={styles.category}>
                                 <p>{category}</p>
-                            </div>
-                            <div className={styles.readTime}>
-                                <span>
-                                    <ClockIcon />
-                                    {readTime} min read
-                                </span>
                             </div>
                         </div>
                         <h4>

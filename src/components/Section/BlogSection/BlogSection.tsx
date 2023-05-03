@@ -1,56 +1,37 @@
 import { BlogCard } from '../../Card/Card';
-import ReactHookImage from '@assets/images/blogs/reactHooks.png';
-import VideoCall from '@assets/images/blogs/videocall.jpeg';
 import styles from './BlogSection.module.scss';
+import { useEffect, useState } from 'react';
+
+export async function getBlogs() {
+    const MEDIUM_API =
+        'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@neerajvageele451';
+
+    return await (await fetch(MEDIUM_API)).json();
+}
+
+type Blog = {
+    author: string;
+    categories: Array<string>;
+    content: string;
+    description: string;
+    guid: string;
+    link: string;
+    pubDate: string;
+    thumbnail: string;
+    title: string;
+};
 
 export const BlogSection = () => {
-    const blogData = [
-        {
-            id: 1,
-            image: VideoCall,
-            category: 'React | WebEx',
-            readTime: '3',
-            title: 'Video call using WebEx by Cisco in ReactJS',
-            blogUrl:
-                'https://medium.com/@neerajvageele451/video-call-using-webex-by-cisco-in-reactjs-b90de2769078',
-        },
-        {
-            id: 2,
-            image: ReactHookImage,
-            category: 'React',
-            readTime: '2',
-            title: 'How does React useState Hook works?',
-            blogUrl:
-                'https://medium.com/@neerajvageele451/how-does-react-usestate-hook-works-56288eea8fcf',
-        },
-        {
-            id: 3,
-            image: ReactHookImage,
-            category: 'React',
-            readTime: '2',
-            title: 'How does React useState Hook works?',
-            blogUrl:
-                'https://medium.com/@neerajvageele451/how-does-react-usestate-hook-works-56288eea8fcf',
-        },
-        {
-            id: 4,
-            image: ReactHookImage,
-            category: 'React',
-            readTime: '2',
-            title: 'How does React useState Hook works?',
-            blogUrl:
-                'https://medium.com/@neerajvageele451/how-does-react-usestate-hook-works-56288eea8fcf',
-        },
-        {
-            id: 5,
-            image: ReactHookImage,
-            category: 'React',
-            readTime: '2',
-            title: 'How does React useState Hook works?',
-            blogUrl:
-                'https://medium.com/@neerajvageele451/how-does-react-usestate-hook-works-56288eea8fcf',
-        },
-    ];
+    const [blogs, setBlogs] = useState<Blog[]>();
+
+    const fetchBlogs = async () => {
+        const data = await getBlogs();
+        setBlogs(data.items);
+    };
+
+    useEffect(() => {
+        fetchBlogs();
+    }, []);
 
     return (
         <div className={styles.sectionSeparator}>
@@ -62,14 +43,13 @@ export const BlogSection = () => {
                     </div>
                 </div>
                 <div className={`row ${styles.blogContainer}`}>
-                    {blogData.map((data) => (
+                    {blogs?.map((blog) => (
                         <BlogCard
-                            key={data.id}
-                            image={data.image}
-                            category={data.category}
-                            readTime={data.readTime}
-                            title={data.title}
-                            blogUrl={data.blogUrl}
+                            key={blog.guid}
+                            image={blog.thumbnail}
+                            category={blog.categories.join(' | ')}
+                            title={blog.title}
+                            blogUrl={blog.link}
                         />
                     ))}
                 </div>
