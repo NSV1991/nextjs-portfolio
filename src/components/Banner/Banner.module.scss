@@ -112,7 +112,7 @@
                         font-size: $font-16;
                         text-transform: uppercase;
                         letter-spacing: 2px;
-                        font-weight: $font-500;
+                        font-weight: $font-600;
                         color: $secondaryTextColor;
                         display: inline-block;
                         margin-bottom: 20px;
@@ -190,6 +190,7 @@
                 > span {
                     color: $textLight;
                     font-size: $font-16;
+                    font-weight: $font-600;
                 }
 
                 > div {
@@ -207,9 +208,10 @@
                         position: relative;
                         z-index: 2;
                         font-size: $font-14;
-                        font-weight: $font-500;
+                        font-weight: $font-600;
                         border: 0 none;
-                        margin-right: 30px;
+                        margin-right: 30px;                        
+                        color: $primaryTextColor;
 
                         &:hover {
                             background: $secondaryGradient;

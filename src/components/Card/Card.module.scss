@@ -1,0 +1,92 @@
+@import '@styles/variable.scss';
+
+.card {
+    margin: 30px 0 0 0;
+    cursor: pointer;
+
+    .container {
+        text-align: left;
+        padding: 30px;
+        position: relative;
+        border-radius: 20px;
+        background: $primaryGradient;
+        box-shadow: $primaryShadow;
+        z-index: 1;
+        height: 100%;
+        transition: $secondaryTransition all ease-in-out;
+        display: inline-block;
+        cursor: pointer;
+
+        .image {
+            display: block;
+            overflow: hidden;
+            border-radius: 10px;
+
+            > img {
+                width: 100%;
+                transition: $secondaryTransition;
+                height: 250px;
+                object-fit: cover;
+                min-height: 250px;
+            }
+        }
+
+        .content {
+            padding-top: 20px;
+
+            .blogDetails {
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 10px;
+
+                .category {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: flex-start;
+                    min-height: 40px;
+
+                    > p {
+                        color: $primaryTextColor;
+                        font-weight: $font-600;
+                        font-size: $font-12;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        display: block;
+                    }
+                }
+            }
+
+            > h4 {
+                margin: 0;
+
+                > a {
+                    transition: $secondaryTransition;
+                    color: $secondaryTextColor;
+                    font-weight: $font-600;
+                    font-size: $font-24;
+                    line-height: 34px;
+                    display: inline-block;
+
+                    > i {
+                        color: $primaryTextColor;
+                        -webkit-text-stroke: 1px;
+                        margin-left: 5px;
+                        opacity: 0;
+                        font-size: 0;
+                        font-weight: $font-600;
+                        transition: $secondaryTransition;
+                    }
+
+                    &:hover {
+                        color: $primaryTextColor;
+
+                        > i {
+                            opacity: 1;
+                            font-size: $font-24;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

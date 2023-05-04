@@ -1,10 +1,10 @@
 import Image, { StaticImageData } from 'next/image';
 import { FunctionComponent } from 'react';
+import styles from './Card.module.scss';
 
 type BlogCardProps = {
     image: StaticImageData | string;
     category: string;
-    readTime: string;
     title: string;
     blogUrl: string;
 };
@@ -12,42 +12,34 @@ type BlogCardProps = {
 export const BlogCard: FunctionComponent<BlogCardProps> = ({
     image,
     category,
-    readTime,
     title,
     blogUrl,
 }: BlogCardProps) => {
     return (
         <div
-            data-aos='fade-up'
-            data-aos-duration='500'
-            data-aos-delay='100'
-            data-aos-once='true'
-            className='cursor-pointer'>
-            <div className='rounded-xl p-6 text-left shadow-slate-300 shadow-2xl bg-gradient-to-br from-gray-200 to-white'>
+            className={`col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 ${styles.card}`}>
+            <div className={styles.container}>
                 <div>
-                    <div>
+                    <div className={styles.image}>
                         <Image
-                            className='rounded-md w-full object-cover'
                             src={image}
-                            alt='Personal Portfolio Images'
+                            alt={title}
+                            width={1400}
+                            height={1054}
+                            loader={({ src }) => src}
+                            style={{ objectFit: 'fill' }}
                         />
                     </div>
-                    <div className='pt-3'>
-                        <div className='flex justify-between pb-3'>
-                            <div className='flex flex-wrap items-center text-sky-500 uppercase tracking-[1px] font-medium text-xs'>
-                                {category}
-                            </div>
-                            <div>
-                                <span className='font-medium text-sm'>
-                                    <i className='mr-2 bi bi-clock'></i>
-                                    {readTime} min read
-                                </span>
+                    <div className={styles.content}>
+                        <div className={styles.blogDetails}>
+                            <div className={styles.category}>
+                                <p>{category}</p>
                             </div>
                         </div>
-                        <h4 className='text-4xl font-bold leading-tight m-0 break-words hover:top-1 opacity-100'>
-                            <a href={blogUrl}>
+                        <h4>
+                            <a href={blogUrl} target='_blank'>
                                 {title}
-                                <i className='bi bi-arrow-up-right text-[0] opacity-0 relative top-3 duration-[0.4s]'></i>
+                                <i className='bi bi-arrow-up-right'></i>
                             </a>
                         </h4>
                     </div>

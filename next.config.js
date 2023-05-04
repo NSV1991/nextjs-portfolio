@@ -6,6 +6,9 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, 'styles')],
     },
+    images: {
+        domains: ['cdn-images-1.medium.com'],
+    },
 };
 
 module.exports = nextConfig;
