@@ -77,9 +77,9 @@ export const SkillSection = () => {
                     </div>
                 </div>
 
-                <div className='row mt-10'>
-                    <div className={styles.skillDetails}>
-                        <div className='col-lg-6 col-md-6 col-12'>
+                <div>
+                    <div className={`${styles.skillDetails} row mt-10`}>
+                        <div className='col-lg-6 col-md-6 col-12 mb-5'>
                             <span className={styles.subtitle}>Features</span>
                             <h4>Web development</h4>
                             {webDevelopmentSkill.map((data) => (
@@ -90,7 +90,7 @@ export const SkillSection = () => {
                                 />
                             ))}
                         </div>
-                        <div className='col-lg-6 col-md-6 col-12'>
+                        <div className='col-lg-6 col-md-6 col-12 mb-5'>
                             <span className={styles.subtitle}>Features</span>
                             <h4>Project Management Tools</h4>
 

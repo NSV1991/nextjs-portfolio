@@ -19,7 +19,7 @@
 }
 
 .headerWrapper {
-    height: 100px;
+    height: 90px;
     padding: 0 64px;
     align-items: center;
     margin: 0;
@@ -41,6 +41,7 @@
         padding: 0 30px;
     }
 }
+
 @media only screen and (max-width: 767px) {
     .headerWrapper {
         padding: 0 20px;

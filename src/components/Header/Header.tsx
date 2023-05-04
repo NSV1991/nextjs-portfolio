@@ -1,10 +1,4 @@
-import React, {
-    FunctionComponent,
-    LegacyRef,
-    useLayoutEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
 import { Logo } from '../Logo/Logo';
 import { Navigation } from '../Navigation/Navigation';
 import styles from './Header.module.scss';
@@ -13,15 +7,15 @@ export const Header: FunctionComponent = () => {
     const stickyHeader = useRef<HTMLElement>(null);
     const [isSticky, setIsSticky] = useState(false);
 
-    useLayoutEffect(() => {
-        let fixedTop = stickyHeader.current?.offsetTop || 100;
-        const fixedHeader = () => {
-            if (window.pageYOffset > 50) {
-                setIsSticky(true);
-            } else {
-                setIsSticky(false);
-            }
-        };
+    const fixedHeader = () => {
+        if (window.pageYOffset > 50) {
+            setIsSticky(true);
+        } else {
+            setIsSticky(false);
+        }
+    };
+
+    useEffect(() => {
         window.addEventListener('scroll', fixedHeader);
     }, []);
 
