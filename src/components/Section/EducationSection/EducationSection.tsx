@@ -4,7 +4,7 @@ import EducationImg from '@assets/images/education/EducationImage.jpg';
 
 export const EducationSection = () => {
     return (
-        <div className={styles.educationSection}>
+        <div id='education' className={styles.educationSection}>
             <div className='container'>
                 <div className='row'>
                     <div className='col-lg-12'>

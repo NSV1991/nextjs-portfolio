@@ -1,20 +1,25 @@
+@import '@styles/variable.scss';
+
 .fixedHeader {
     position: absolute;
     top: 0;
     z-index: 999;
     width: 100%;
-    transition: 0.3s;
 }
 
-.header--sticky {
+.stickyHeader {
+    transition: 0.6s;
     position: fixed;
     top: 0;
     z-index: 999;
     width: 100%;
+    background: $white;
+    box-shadow: $secondaryShadow;
+    backdrop-filter: blur(15px);
 }
 
 .headerWrapper {
-    height: 122px;
+    height: 100px;
     padding: 0 64px;
     align-items: center;
     margin: 0;
@@ -30,17 +35,8 @@
         align-items: center;
     }
 }
-@media only screen and (min-width: 1200px) and (max-width: 1599px) {
-    .headerWrapper {
-        padding: 0 30px;
-    }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .headerWrapper {
-        padding: 0 30px;
-    }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+@media only screen and (min-width: 768px) and (max-width: 1599px) {
     .headerWrapper {
         padding: 0 30px;
     }

@@ -6,7 +6,7 @@ import TRTImg from '@assets/images/portfolio/thirdrocktechknoNew.png';
 
 export const ExperienceSection = () => {
     return (
-        <div className={styles.experienceSection}>
+        <div id='experience' className={styles.experienceSection}>
             <div className='container'>
                 <div className='row'>
                     <div className='col-lg-12'>

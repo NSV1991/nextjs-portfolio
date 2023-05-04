@@ -7,6 +7,8 @@ import {
     EducationSection,
     ExperienceSection,
     Header,
+    ProgressBar,
+    SkillSection,
 } from '@components/index';
 
 export default function Home() {
@@ -35,6 +37,7 @@ export default function Home() {
                 <Banner />
                 <ExperienceSection />
                 <EducationSection />
+                <SkillSection />
                 <BlogSection />
             </main>
         </>
