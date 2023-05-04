@@ -37,9 +37,9 @@ export const BlogCard: FunctionComponent<BlogCardProps> = ({
                             </div>
                         </div>
                         <h4>
-                            <a href={blogUrl}>
+                            <a href={blogUrl} target='_blank'>
                                 {title}
-                                <i className='bi bi-arrow-up-right text-[0] opacity-0 relative top-3 duration-[0.4s]'></i>
+                                <i className='bi bi-arrow-up-right'></i>
                             </a>
                         </h4>
                     </div>

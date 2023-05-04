@@ -25,11 +25,16 @@ export const ExperienceSection = () => {
                                 <Image src={ApexonImg} alt='Apexon' />
                             </div>
                             <div className={styles.experienceInfo}>
-                                <span>2022-Present</span>
-                                <h4>
-                                    <a href='https://www.apexon.com/'>Apexon</a>
-                                </h4>
-                                <h6>Senior Software Engineer</h6>
+                                <a
+                                    href='https://www.apexon.com/'
+                                    target='_blank'>
+                                    <span>2022-Present</span>
+                                    <h4>
+                                        Apexon
+                                        <i className='bi bi-arrow-up-right'></i>
+                                    </h4>
+                                    <h6>Senior Software Engineer</h6>
+                                </a>
                             </div>
                         </div>
 
@@ -38,13 +43,16 @@ export const ExperienceSection = () => {
                                 <Image src={TRTImg} alt='TRT' />
                             </div>
                             <div className={styles.experienceInfo}>
-                                <span>2017-2022</span>
-                                <h4>
-                                    <a href='https://www.thirdrocktechkno.com/'>
+                                <a
+                                    href='https://www.thirdrocktechkno.com/'
+                                    target='_blank'>
+                                    <span>2017-2022</span>
+                                    <h4>
                                         Third Rock Techkno
-                                    </a>
-                                </h4>
-                                <h6>Programmer Analyst</h6>
+                                        <i className='bi bi-arrow-up-right'></i>
+                                    </h4>
+                                    <h6>Programmer Analyst</h6>
+                                </a>
                             </div>
                         </div>
                     </div>

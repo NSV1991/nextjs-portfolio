@@ -1,7 +1,13 @@
 import Head from 'next/head';
 import AOS from 'aos';
 import { useEffect } from 'react';
-import { Banner, BlogSection, ExperienceSection, Header } from '@components/index';
+import {
+    Banner,
+    BlogSection,
+    EducationSection,
+    ExperienceSection,
+    Header,
+} from '@components/index';
 
 export default function Home() {
     useEffect(() => {
@@ -28,6 +34,7 @@ export default function Home() {
             <main>
                 <Banner />
                 <ExperienceSection />
+                <EducationSection />
                 <BlogSection />
             </main>
         </>
