@@ -40,10 +40,12 @@
                 padding-bottom: 10px;
 
                 .category {
-                    display: flex;
-                    flex-wrap: wrap;
-                    align-items: flex-start;
                     min-height: 40px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
 
                     > p {
                         color: $primaryTextColor;

@@ -4,13 +4,13 @@ import EducationImg from '@assets/images/education/EducationImage.jpg';
 
 export const EducationSection = () => {
     return (
-        <div className={styles.educationSection}>
+        <div id='education' className={styles.educationSection}>
             <div className='container'>
                 <div className='row'>
                     <div className='col-lg-12'>
                         <div className='text-center'>
                             <span className={`${styles.subtitle} mb-10`}>
-                                BACHELOR'S OF ENGINEERING IN COMPUTER
+                                BACHELOR&apos;S OF ENGINEERING IN COMPUTER
                             </span>
                             <h2 className='title'>My Education</h2>
                         </div>
