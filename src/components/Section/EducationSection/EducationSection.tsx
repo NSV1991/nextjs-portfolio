@@ -10,7 +10,7 @@ export const EducationSection = () => {
                     <div className='col-lg-12'>
                         <div className='text-center'>
                             <span className={`${styles.subtitle} mb-10`}>
-                                BACHELOR'S OF ENGINEERING IN COMPUTER
+                                BACHELOR&apos;S OF ENGINEERING IN COMPUTER
                             </span>
                             <h2 className='title'>My Education</h2>
                         </div>
