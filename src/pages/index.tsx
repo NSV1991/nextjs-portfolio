@@ -1,20 +1,14 @@
 import Head from 'next/head';
-import AOS from 'aos';
-import { useEffect } from 'react';
 import {
     Banner,
     BlogSection,
     EducationSection,
     ExperienceSection,
     Header,
-    ProgressBar,
     SkillSection,
 } from '@components/index';
 
 export default function Home() {
-    useEffect(() => {
-        AOS.init();
-    }, []);
     return (
         <>
             <Head>

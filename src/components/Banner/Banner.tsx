@@ -8,6 +8,8 @@ import LinkedInIcon from '@assets/images/icons/linkedIn';
 import MapPinIcon from '@assets/images/icons/mapPin';
 import MailIcon from '@assets/images/icons/mail';
 import FileIcon from '@assets/images/icons/file';
+import LeetCodeIcon from '@assets/images/icons/leetcode';
+import Link from 'next/link';
 
 const UserInfo = () => {
     return (
@@ -48,20 +50,25 @@ const SocialInfo = () => {
         <div className={styles.socialInfo}>
             <span className={styles.title}>find me</span>
             <ul className={styles.iconWrapper}>
-                <li className='twitter'>
-                    <a href='https://twitter.com/vageele'>
-                        <TwitterIcon />
-                    </a>
-                </li>
-                <li className='github'>
-                    <a href='https://github.com/NSV1991'>
-                        <GitHubIcon />
-                    </a>
-                </li>
-                <li className='linkedin'>
-                    <a href='https://www.linkedin.com/in/neeraj-vageele-ba3801148/'>
+                <li title='linkedIn'>
+                    <Link href='https://www.linkedin.com/in/neeraj-vageele-ba3801148/'>
                         <LinkedInIcon />
-                    </a>
+                    </Link>
+                </li>
+                <li title='github'>
+                    <Link href='https://github.com/NSV1991'>
+                        <GitHubIcon />
+                    </Link>
+                </li>
+                <li title='leetcode'>
+                    <Link href='https://leetcode.com/NSV1991/'>
+                        <LeetCodeIcon />
+                    </Link>
+                </li>
+                <li title='twitter'>
+                    <Link href='https://twitter.com/vageele'>
+                        <TwitterIcon />
+                    </Link>
                 </li>
             </ul>
         </div>
