@@ -1,15 +1,17 @@
 import Image from 'next/image';
-import HeroImage from '@assets/images/neeraj-banner.png';
-import styles from './Banner.module.scss';
-import GitHubIcon from '@assets/images/icons/github';
-import UserIcon from '@assets/images/icons/user';
-import TwitterIcon from '@assets/images/icons/twitter';
-import LinkedInIcon from '@assets/images/icons/linkedIn';
-import MapPinIcon from '@assets/images/icons/mapPin';
-import MailIcon from '@assets/images/icons/mail';
-import FileIcon from '@assets/images/icons/file';
-import LeetCodeIcon from '@assets/images/icons/leetcode';
 import Link from 'next/link';
+
+import FileIcon from '@assets/images/icons/file';
+import GitHubIcon from '@assets/images/icons/github';
+import HeroImage from '@assets/images/neeraj-banner.png';
+import LeetCodeIcon from '@assets/images/icons/leetcode';
+import LinkedInIcon from '@assets/images/icons/linkedIn';
+import MailIcon from '@assets/images/icons/mail';
+import MapPinIcon from '@assets/images/icons/mapPin';
+import TwitterIcon from '@assets/images/icons/twitter';
+import UserIcon from '@assets/images/icons/user';
+
+import styles from './Banner.module.scss';
 
 const UserInfo = () => {
     return (
@@ -80,15 +82,17 @@ const ResumeAndContact = () => {
         <div className={styles.userInfoFooter}>
             <span>Download my curriculum vitae:</span>
             <div className='button-wrapper d-flex'>
-                <a
+                <Link
                     className='rn-btn mr--30'
-                    href='assets/NeerajVageeleCV.pdf'
-                    download>
+                    href='files/NeerajVageeleCV.pdf'
+                    target='_blank'>
                     <span>DOWNLOAD CV</span>
-                </a>
-                <a className='rn-btn' href='mailto:neerajvageele451@gmail.com'>
+                </Link>
+                <Link
+                    className='rn-btn'
+                    href='mailto:neerajvageele451@gmail.com'>
                     <span>CONTACT ME</span>
-                </a>
+                </Link>
             </div>
         </div>
     );
