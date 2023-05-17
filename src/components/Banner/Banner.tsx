@@ -81,16 +81,11 @@ const ResumeAndContact = () => {
     return (
         <div className={styles.userInfoFooter}>
             <span>Download my curriculum vitae:</span>
-            <div className='button-wrapper d-flex'>
-                <Link
-                    className='rn-btn mr--30'
-                    href='files/NeerajVageeleCV.pdf'
-                    target='_blank'>
+            <div>
+                <Link href='files/Neeraj_Vageele_CV.pdf' target='_blank'>
                     <span>DOWNLOAD CV</span>
                 </Link>
-                <Link
-                    className='rn-btn'
-                    href='mailto:neerajvageele451@gmail.com'>
+                <Link href='mailto:neerajvageele451@gmail.com'>
                     <span>CONTACT ME</span>
                 </Link>
             </div>
