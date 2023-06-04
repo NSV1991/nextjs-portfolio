@@ -1,0 +1,131 @@
+@import '@styles/variable.scss';
+
+.loader {
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90vw;
+    height: 80vh;
+    padding: 20px;
+}
+
+.imageSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: $primaryShadow;
+    border-radius: 10px;
+    width: 50%;
+    height: 100%;
+    background: $primaryGradient;
+}
+
+.previewArea {
+    width: 100%;
+    min-height: 500px;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px 0 #222222;
+    margin-bottom: 30px;
+    position: relative;
+
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    .canvas {
+        border-radius: 10px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.fileUpload {
+    padding: 15px 35px;
+    border-radius: 5px;
+    box-shadow: $primaryShadow;
+    transition: 0.4s;
+    font-size: $font-14;
+    font-weight: $font-600;
+    border: none;
+    margin: 20px 0px;
+    color: $primaryTextColor;
+    cursor: pointer;
+
+    label {
+        cursor: pointer;
+        span {
+            margin-right: 10px;
+            i::before {
+                font-weight: $font-600 !important;
+            }
+        }
+    }
+
+    &:hover {
+        color: $white;
+        background: $secondaryGradient;
+    }
+
+    input {
+        display: none;
+    }
+}
+
+.dataSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+    height: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+
+    ul {
+        list-style: none;
+        width: 100%;
+
+        li {
+            width: 100%;
+            margin-top: 0;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: $primaryShadow;
+            background: $primaryGradient;
+
+            p {
+                margin-bottom: 0;
+
+                label {
+                    font-weight: $font-600;
+                }
+
+                span {
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}

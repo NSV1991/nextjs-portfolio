@@ -4,8 +4,8 @@ import {
     BlogSection,
     EducationSection,
     ExperienceSection,
-    Header,
     SkillSection,
+    Layout,
 } from '@components/index';
 
 export default function Home() {
@@ -26,14 +26,9 @@ export default function Home() {
                     content='width=device-width, initial-scale=1'
                 />
             </Head>
-            <Header />
-            <main>
+            <Layout>
                 <Banner />
-                <ExperienceSection />
-                <EducationSection />
-                <SkillSection />
-                <BlogSection />
-            </main>
+            </Layout>
         </>
     );
 }

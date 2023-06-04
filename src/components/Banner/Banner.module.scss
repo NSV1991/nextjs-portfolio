@@ -5,7 +5,7 @@
     position: relative;
 
     .banner {
-        padding-top: 180px;
+        padding-top: 50px;
         display: flex;
         justify-content: space-between;
 
@@ -210,8 +210,9 @@
                         font-size: $font-14;
                         font-weight: $font-600;
                         border: 0 none;
-                        margin-right: 30px;                        
+                        margin: 0 30px 30px 0;                        
                         color: $primaryTextColor;
+                        min-width: 200px;
 
                         &:hover {
                             background: $secondaryGradient;

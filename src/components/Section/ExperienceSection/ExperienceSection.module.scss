@@ -2,7 +2,7 @@
 
 .experienceSection {
     position: relative;
-    padding: 100px 0;
+    padding: 50px 0;
 
     &::after {
         background: $separatorColor;
@@ -35,13 +35,17 @@
         border-radius: 10px;
         margin: 40px auto 0;
         width: 90%;
+        flex-wrap: wrap;
 
         .experienceImage {
             max-width: 250px;
+            max-height: 150px;
             height: auto;
             border-radius: 8px;
             transition: $secondaryTransition;
             overflow: hidden;
+            flex: 1 1 100%;
+            aspect-ratio: 1/1;
 
             > img {
                 border-radius: 8px;
@@ -50,7 +54,7 @@
         }
 
         .experienceInfo {
-            flex-grow: 2;
+            flex: 1 1 200px;
             padding-left: 30px;
             cursor: pointer;
             > a {
@@ -97,6 +101,51 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1000px) {
+    .experienceSection {
+        .experienceDetails {
+            .experienceImage {
+                max-width: 100%;
+                max-height: 320px;
+            }
+            .experienceInfo {
+                margin-top: 20px;
+                padding: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .experienceSection {
+        .experienceDetails {
+            .experienceImage {
+                max-width: 100%;
+                max-height: 250px;
+            }
+            .experienceInfo {
+                margin-top: 20px;
+                padding: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .experienceSection {
+        .experienceDetails {
+            .experienceImage {
+                max-width: 100%;
+                max-height: 180px;
+            }
+            .experienceInfo {
+                margin-top: 20px;
+                padding: 0;
             }
         }
     }

@@ -1,20 +1,23 @@
 import Image, { StaticImageData } from 'next/image';
 import { FunctionComponent } from 'react';
 import styles from './Card.module.scss';
+import Link from 'next/link';
 
-type BlogCardProps = {
+type CardProps = {
     image: StaticImageData | string;
-    category: string;
+    category?: string;
     title: string;
-    blogUrl: string;
+    url: string;
+    openInSamePage?: Boolean;
 };
 
-export const BlogCard: FunctionComponent<BlogCardProps> = ({
+export const Card: FunctionComponent<CardProps> = ({
     image,
     category,
     title,
-    blogUrl,
-}: BlogCardProps) => {
+    url,
+    openInSamePage,
+}: CardProps) => {
     return (
         <div
             className={`col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 ${styles.card}`}>
@@ -31,16 +34,20 @@ export const BlogCard: FunctionComponent<BlogCardProps> = ({
                         />
                     </div>
                     <div className={styles.content}>
-                        <div className={styles.blogDetails}>
-                            <div className={styles.category}>
-                                <p>{category}</p>
+                        {category && (
+                            <div className={styles.blogDetails}>
+                                <div className={styles.category}>
+                                    <p>{category}</p>
+                                </div>
                             </div>
-                        </div>
+                        )}
                         <h4>
-                            <a href={blogUrl} target='_blank'>
+                            <Link
+                                href={url}
+                                target={openInSamePage ? '_self' : '_blank'}>
                                 {title}
                                 <i className='bi bi-arrow-up-right'></i>
-                            </a>
+                            </Link>
                         </h4>
                     </div>
                 </div>
