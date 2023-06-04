@@ -1,4 +1,4 @@
-import { BlogCard } from '../../Card/Card';
+import { Card } from '../../Card/Card';
 import styles from './BlogSection.module.scss';
 import { useEffect, useState } from 'react';
 
@@ -44,12 +44,12 @@ export const BlogSection = () => {
                 </div>
                 <div className={`row ${styles.blogContainer}`}>
                     {blogs?.map((blog) => (
-                        <BlogCard
+                        <Card
                             key={blog.guid}
                             image={blog.thumbnail}
                             category={blog.categories.join(' | ')}
                             title={blog.title}
-                            blogUrl={blog.link}
+                            url={blog.link}
                         />
                     ))}
                 </div>

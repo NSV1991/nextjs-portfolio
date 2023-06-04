@@ -1,17 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import FileIcon from '@assets/images/icons/file';
-import GitHubIcon from '@assets/images/icons/github';
-import HeroImage from '@assets/images/neeraj-banner.png';
-import LeetCodeIcon from '@assets/images/icons/leetcode';
-import LinkedInIcon from '@assets/images/icons/linkedIn';
-import MailIcon from '@assets/images/icons/mail';
-import MapPinIcon from '@assets/images/icons/mapPin';
-import TwitterIcon from '@assets/images/icons/twitter';
-import UserIcon from '@assets/images/icons/user';
-
 import styles from './Banner.module.scss';
+import HeroImage from '@assets/images/neerajBanner.png';
+import {
+    FileIcon,
+    GitHubIcon,
+    LeetCodeIcon,
+    LinkedInIcon,
+    MailIcon,
+    MapPinIcon,
+    TwitterIcon,
+    UserIcon,
+} from '@assets/images/icons';
 
 const UserInfo = () => {
     return (
