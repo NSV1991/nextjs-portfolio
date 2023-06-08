@@ -33,8 +33,9 @@
     box-shadow: $primaryShadow;
     border-radius: 10px;
     width: 50%;
-    height: 100%;
+    height: auto;
     background: $primaryGradient;
+    margin-bottom: 10px;
 }
 
 .previewArea {

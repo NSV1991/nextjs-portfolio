@@ -22,7 +22,7 @@ export const Navigation = () => {
         { text: 'Education', link: '/education' },
         { text: 'Skills', link: '/skills' },
         { text: 'Blogs', link: '/blogs' },
-        { text: 'Work Samples', link: '/work-samples' },
+        { text: 'Work', link: '/work' },
     ];
 
     return (

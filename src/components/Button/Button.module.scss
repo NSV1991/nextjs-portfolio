@@ -1,0 +1,20 @@
+@import '@styles/variable.scss';
+
+.button {
+    background: $white;
+    box-shadow: $primaryShadow;
+    color: $primaryTextColor;
+    padding: 15px 35px;
+    border-radius: 5px;
+    font-size: $font-14;
+    font-weight: $font-600;
+    border: none;
+    margin: 20px 0px;
+    cursor: pointer;
+    transition: 0.4s;
+
+    &:hover {
+        background: $primaryTextColor;
+        color: $white;
+    }
+}

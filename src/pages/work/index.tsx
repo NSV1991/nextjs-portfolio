@@ -8,7 +8,7 @@ export default function WorkSamples() {
         {
             title: 'Detect Object from Image using ML5',
             description: '',
-            image: ObjectDetectionImage,
+            image: ObjectDetectionImage.src,
             link: 'object-detection',
         },
     ];
