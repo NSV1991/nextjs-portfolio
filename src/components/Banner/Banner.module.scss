@@ -1,7 +1,7 @@
 @import '@styles/variable.scss';
 
 .bannerContainer {
-    padding-bottom: 100px;
+    padding-bottom: 30px;
     position: relative;
 
     .banner {
@@ -14,8 +14,8 @@
 
             .topSection {
                 background: $primaryGradient;
-                box-shadow: $primaryShadow;
-                padding: 35px;
+                box-shadow: $tertiaryShadow;
+                padding: 25px 35px;
                 border-radius: 10px 10px 0 0;
 
                 .header {
@@ -106,7 +106,7 @@
                 .socialInfo {
                     border-top: 1px solid rgba(255, 255, 255, 0.1);
                     padding-top: 20px;
-                    margin-top: 50px !important;
+                    margin-top: 20px !important;
 
                     .title {
                         font-size: $font-16;
@@ -141,8 +141,6 @@
                                 text-transform: uppercase;
                                 border-radius: 6px;
                                 transition: $secondaryTransition;
-                                position: relative;
-                                z-index: 1;
 
                                 &:hover {
                                     background: $secondaryGradient;
@@ -183,8 +181,8 @@
             .userInfoFooter {
                 margin-top: 30px;
                 background: $primaryGradient;
-                box-shadow: $primaryShadow;
-                padding: 35px;
+                box-shadow: $tertiaryShadow;
+                padding: 25px 35px;
                 border-radius: 0 0 10px 10px;
 
                 > span {
@@ -194,11 +192,12 @@
                 }
 
                 > div {
-                    margin-top: 30px;
+                    margin-top: 20px;
 
                     > a {
+                        text-align: center;
                         display: inline-block;
-                        padding: 15px 35px;
+                        padding: 15px 25px;
                         list-style: none;
                         text-decoration: none;
                         border-radius: 6px;
@@ -210,7 +209,7 @@
                         font-size: $font-14;
                         font-weight: $font-600;
                         border: 0 none;
-                        margin: 0 30px 30px 0;                        
+                        margin: 0 20px 20px 0;
                         color: $primaryTextColor;
                         min-width: 200px;
 
@@ -225,8 +224,8 @@
         }
 
         .imageSection {
-            padding: 35px;
-            box-shadow: $primaryShadow;
+            padding: 25px 35px;
+            box-shadow: $tertiaryShadow;
             position: relative;
             right: 0;
             border-radius: 10px;

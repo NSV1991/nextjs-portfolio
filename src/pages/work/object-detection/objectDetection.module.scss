@@ -30,11 +30,12 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    box-shadow: $primaryShadow;
+    box-shadow: $tertiaryShadow;
     border-radius: 10px;
     width: 50%;
-    height: 100%;
+    height: auto;
     background: $primaryGradient;
+    margin-bottom: 10px;
 }
 
 .previewArea {
@@ -64,7 +65,7 @@
 .fileUpload {
     padding: 15px 35px;
     border-radius: 5px;
-    box-shadow: $primaryShadow;
+    box-shadow: $tertiaryShadow;
     transition: 0.4s;
     font-size: $font-14;
     font-weight: $font-600;
@@ -112,7 +113,7 @@
             margin-top: 0;
             padding: 10px 20px;
             border-radius: 10px;
-            box-shadow: $primaryShadow;
+            box-shadow: $tertiaryShadow;
             background: $primaryGradient;
 
             p {

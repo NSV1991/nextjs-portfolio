@@ -10,7 +10,7 @@
         position: relative;
         border-radius: 20px;
         background: $primaryGradient;
-        box-shadow: $primaryShadow;
+        box-shadow: $tertiaryShadow;
         z-index: 1;
         height: 100%;
         transition: $secondaryTransition all ease-in-out;
@@ -21,6 +21,7 @@
             display: block;
             overflow: hidden;
             border-radius: 10px;
+            border: 1px solid $borderColor;
 
             > img {
                 width: 100%;
@@ -68,6 +69,11 @@
                     font-size: $font-24;
                     line-height: 34px;
                     display: inline-block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
 
                     > i {
                         color: $primaryTextColor;
