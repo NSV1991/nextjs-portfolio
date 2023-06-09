@@ -3,7 +3,7 @@ import styles from './Button.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant: 'primary' | 'secondary';
-    text: string;
+    customClass?: string;
 }
 
 export const Button = (props: ButtonProps) => {
@@ -11,7 +11,7 @@ export const Button = (props: ButtonProps) => {
         <button
             {...props}
             type={props.type || 'button'}
-            className={styles.button}>
+            className={`${styles.button} ${props.customClass}`}>
             {props.children}
         </button>
     );

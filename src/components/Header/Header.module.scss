@@ -1,5 +1,69 @@
 @import '@styles/variable.scss';
 
+.sidebar,
+.sidebarOverlay {
+    position: fixed;
+    background: $white;
+    width: 80vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 1001;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    overflow: hidden;
+}
+
+.sidebar {
+    padding: 20px;
+    background: $primaryGradient;
+
+    .heading {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        span {
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: $primaryShadow;
+
+            i {
+                font-size: $font-20;
+                color: $primaryTextColor;
+                &::before {
+                    font-weight: $font-900 !important;
+                }
+            }
+        }
+    }
+
+    p {
+        padding: 10px 0;
+        font-size: $font-20;
+        color: $secondaryTextColor;
+        border-bottom: 1px solid $borderColor;
+    }
+    .content {
+        ul {
+            display: flex;
+            flex-direction: column;
+
+            a {
+                letter-spacing: 2px;
+            }
+        }
+    }
+}
+
+.sidebarOverlay {
+    background: $textLight;
+    width: 100vw;
+    z-index: 1000;
+    opacity: 0.5;
+    transition: opacity 0.5s ease-out;
+}
+
 .fixedHeader {
     position: absolute;
     top: 0;
@@ -33,6 +97,18 @@
         justify-content: flex-end;
         display: flex;
         align-items: center;
+    }
+
+    .headerRight {
+        justify-content: flex-end;
+        display: flex;
+
+        i {
+            font-size: $font-40;
+            color: $primaryTextColor;
+            transform: scale(1);
+            box-shadow: none;
+        }
     }
 }
 

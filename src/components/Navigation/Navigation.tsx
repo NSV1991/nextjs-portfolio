@@ -1,12 +1,14 @@
+import { MouseEventHandler } from 'react';
 import Link from 'next/link';
 import styles from './Navigation.module.scss';
 
 type NavItemProps = {
     text: string;
     link: string;
+    onLinkClick?: MouseEventHandler<string> | undefined;
 };
 
-const NavItem = ({ text, link }: NavItemProps) => {
+const NavItem = ({ text, link, onLinkClick }: NavItemProps) => {
     return (
         <li className='nav-item'>
             <Link href={link} className='nav-link'>
@@ -26,7 +28,7 @@ export const Navigation = () => {
     ];
 
     return (
-        <nav id='navigation' className={` d-none d-xl-block`}>
+        <nav id='navigation' className='d-xl-block'>
             <ul className={`${styles.mainNav} nav-pills`}>
                 {navItems.map(({ text, link }, index) => (
                     <NavItem key={`${text}-${index}`} text={text} link={link} />
