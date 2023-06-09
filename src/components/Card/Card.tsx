@@ -36,7 +36,7 @@ export const Card: FunctionComponent<CardProps> = ({
                     <div className={styles.content}>
                         {category && (
                             <div className={styles.blogDetails}>
-                                <div className={styles.category}>
+                                <div className={`${styles.category} category`}>
                                     <p>{category}</p>
                                 </div>
                             </div>
@@ -46,7 +46,6 @@ export const Card: FunctionComponent<CardProps> = ({
                                 href={url}
                                 target={openInSamePage ? '_self' : '_blank'}>
                                 {title}
-                                <i className='bi bi-arrow-up-right'></i>
                             </Link>
                         </h4>
                     </div>

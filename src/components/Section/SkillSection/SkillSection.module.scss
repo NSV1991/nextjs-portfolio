@@ -4,18 +4,6 @@
     position: relative;
     padding: 50px 0;
 
-    &::after {
-        background: $separatorColor;
-        position: absolute;
-        max-width: 1280px;
-        height: 1px;
-        content: '';
-        top: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-    }
-
     .subtitle {
         color: $primaryTextColor;
         letter-spacing: 2px;
@@ -31,7 +19,7 @@
         display: flex;
         align-items: flex-start;
         padding: 30px;
-        box-shadow: $primaryShadow;
+        box-shadow: $tertiaryShadow;
         border-radius: 10px;
         margin: 40px auto 0;
         width: 90%;
