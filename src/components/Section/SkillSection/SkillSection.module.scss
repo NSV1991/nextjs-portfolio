@@ -36,3 +36,19 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .skillSection {
+        h2 {
+            font-size: 50px;
+        }
+        .subtitle {
+            font-size: $font-12;
+        }
+        .skillDetails {
+            h4 {
+                font-size: $font-26;
+            }
+        }
+    }
+}

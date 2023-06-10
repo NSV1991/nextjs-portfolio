@@ -34,3 +34,14 @@
         margin: 10px -15px 0 -15px;
     }
 }
+
+@media only screen and (max-width: 767px) {
+    .sectionSeparator {
+        h2 {
+            font-size: 50px;
+        }
+        .subtitle {
+            font-size: $font-12;
+        }
+    }
+}
