@@ -78,10 +78,17 @@ export const Header: FunctionComponent = () => {
             <AnimatePresence>
                 {isSidebarOpen && (
                     <>
-                        <div className={styles.sidebarOverlay}></div>
+                        <div
+                            className={styles.sidebarOverlay}
+                            onClick={() => {
+                                setIsSidebarOpen(0);
+                            }}></div>
                         <motion.aside
                             initial={{ width: 0 }}
-                            animate={{ width: '80vw' }}
+                            animate={{
+                                width:
+                                    window.outerWidth < 768 ? '80vw' : '40vw',
+                            }}
                             exit={{
                                 width: 0,
                                 transition: { delay: 0.2, duration: 0.3 },
