@@ -126,12 +126,16 @@ export default function ObjectDetection() {
                         </div>
 
                         {uploadedImage && (
-                            <Button onClick={startDetecting}>
+                            <Button
+                                variant='primary'
+                                customClass={styles.detectionBtn}
+                                onClick={startDetecting}>
                                 Start detection
                             </Button>
                         )}
                     </div>
                     <div className={styles.dataSection}>
+                        <h3>Results</h3>
                         <ul>
                             {detectedObjects.length > 0 ? (
                                 detectedObjects.map((data, index) => (

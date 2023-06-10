@@ -11,7 +11,9 @@ export const Button = (props: ButtonProps) => {
         <button
             {...props}
             type={props.type || 'button'}
-            className={`${styles.button} ${props.customClass}`}>
+            className={`${styles.button} ${
+                props?.customClass ? props?.customClass : ''
+            }`}>
             {props.children}
         </button>
     );
