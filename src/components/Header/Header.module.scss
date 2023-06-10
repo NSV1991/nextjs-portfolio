@@ -10,19 +10,17 @@
     top: 0;
     z-index: 1001;
     opacity: 1;
-    transition: opacity 0.5s ease-out;
     overflow: hidden;
 }
 
 .sidebar {
-    padding: 20px;
     background: $primaryGradient;
 
     .heading {
         display: flex;
         flex-direction: row;
         align-items: center;
-
+        padding: 20px;
         span {
             padding: 5px;
             border-radius: 5px;
@@ -39,12 +37,14 @@
     }
 
     p {
-        padding: 10px 0;
+        padding: 10px 20px;
+        margin: 0 0 20px 0;
         font-size: $font-20;
         color: $secondaryTextColor;
         border-bottom: 1px solid $borderColor;
     }
     .content {
+        padding: 20px;
         ul {
             display: flex;
             flex-direction: column;
@@ -61,7 +61,6 @@
     width: 100vw;
     z-index: 1000;
     opacity: 0.5;
-    transition: opacity 0.5s ease-out;
 }
 
 .fixedHeader {
