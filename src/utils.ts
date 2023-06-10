@@ -5,7 +5,7 @@ const useIsMobileView = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            const isMobile = window.innerWidth < 768; // Set your desired mobile width breakpoint here
+            const isMobile = window.innerWidth < 821; // Set your desired mobile width breakpoint here
             setIsMobileView(isMobile);
         };
 
