@@ -16,7 +16,8 @@ export default function WorkSamples() {
             title: 'Element IO | Secure collaboration and messaging',
             category: 'Open Source Contribution',
             image: ElementImage.src,
-            link: 'object-detection',
+            link: 'https://app.element.io/',
+            absoluteLink: true,
         },
     ];
     return (
@@ -35,7 +36,11 @@ export default function WorkSamples() {
                                 key={`${sample.title}-${index}`}
                                 image={sample.image}
                                 title={sample.title}
-                                url={`work/${sample.link}`}
+                                url={
+                                    sample?.absoluteLink
+                                        ? sample.link
+                                        : `work/${sample.link}`
+                                }
                                 category={sample.category || ''}
                                 openInSamePage
                             />
