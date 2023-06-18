@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { Layout } from '@components/index';
-import { Loader } from '@assets/images/icons';
+import { Spinner } from '@assets/images/icons';
 import Image from 'next/image';
 import styles from './objectDetection.module.scss';
 import { Button } from '@components/Button/Button';
+import { browser } from '@tensorflow/tfjs';
+import '@tensorflow/tfjs';
+import { load as cocoModalLoad } from '@tensorflow-models/coco-ssd';
 
 export default function ObjectDetection() {
     const canvasEle = useRef(null);
@@ -20,7 +23,7 @@ export default function ObjectDetection() {
         // Clear part of the canvas
         ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, imageEle.current.width, imageEle.current.height);
-        console.log('ctx:', ctx);
+
         ctx.drawImage(
             imageEle.current,
             0,
@@ -29,16 +32,30 @@ export default function ObjectDetection() {
             imageEle.current.height
         );
         for (let i = 0; i < objects.length; i += 1) {
+            // Draw the background rectangle
+            ctx.fillStyle = 'rgba(0, 128, 0, 0.5)';
+            ctx.strokeStyle = 'white';
+            ctx.fillRect(
+                objects[i].bbox[0],
+                objects[i].bbox[1],
+                objects[i].bbox[2],
+                20
+            );
+
             ctx.font = '16px Arial';
             ctx.fillStyle = 'white';
-            ctx.fillText(objects[i].label, objects[i].x + 4, objects[i].y + 16);
+            ctx.fillText(
+                objects[i].class,
+                objects[i].bbox[0] + 4,
+                objects[i].bbox[1] + 16
+            );
 
             ctx.beginPath();
             ctx.rect(
-                objects[i].x,
-                objects[i].y,
-                objects[i].width,
-                objects[i].height
+                objects[i].bbox[0],
+                objects[i].bbox[1],
+                objects[i].bbox[2],
+                objects[i].bbox[3]
             );
             ctx.strokeStyle = 'green';
             ctx.stroke();
@@ -46,29 +63,24 @@ export default function ObjectDetection() {
         }
     };
 
-    const startDetecting = () => {
-        objectDetector.detect(imageEle.current, function (err, results) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            setDetectedObjects(results);
+    const startDetecting = async () => {
+        const image = browser.fromPixels(imageEle.current);
+        const predictions = await objectDetector.detect(image);
 
-            if (results && canvasEle.current) {
-                draw(canvasEle.current.getContext('2d'), results);
-            }
-        });
+        setDetectedObjects(predictions);
+        if (predictions && canvasEle.current) {
+            draw(canvasEle.current.getContext('2d'), predictions);
+        }
     };
 
-    const fetchML5 = async () => {
-        const detector = (await import('ml5')).objectDetector;
-        const objDetector = await detector('cocossd');
-        setObjectDetectors(objDetector);
+    const loadOCRModel = async () => {
+        const model = await cocoModalLoad();
+        setObjectDetectors(model);
         setIsLoading(false);
     };
 
     useEffect(() => {
-        fetchML5();
+        loadOCRModel();
     }, []);
 
     const setImage = (event) => {
@@ -76,7 +88,7 @@ export default function ObjectDetection() {
             const image = event.target.files[0];
             if (canvasEle.current) {
                 const canvas = canvasEle.current.getContext('2d');
-                canvas.clearRect(0, 0, canvas.width, canvas.height);
+                canvas.reset();
             }
             setUploadedImage(URL.createObjectURL(image));
         }
@@ -86,7 +98,7 @@ export default function ObjectDetection() {
         <Layout>
             {isLoading ? (
                 <div className={styles.loader}>
-                    <Loader />
+                    <Image src={Spinner} alt='loader' />
                 </div>
             ) : (
                 <div className={styles.container}>
@@ -111,8 +123,10 @@ export default function ObjectDetection() {
                                 </>
                             )}
                         </div>
-                        <div className={styles.fileUpload}>
-                            <label htmlFor='fileSelect'>
+                        <div>
+                            <label
+                                htmlFor='fileSelect'
+                                className={styles.fileUpload}>
                                 <span>
                                     <i className='bi bi-upload'></i>
                                 </span>
@@ -122,6 +136,7 @@ export default function ObjectDetection() {
                                 id='fileSelect'
                                 type='file'
                                 onChange={setImage}
+                                hidden
                             />
                         </div>
 
@@ -141,15 +156,15 @@ export default function ObjectDetection() {
                                 detectedObjects.map((data, index) => (
                                     <li key={`${data.label}-${index}`}>
                                         <p>
-                                            <label>Object</label>:
-                                            <span> {data.label}</span>
+                                            <label>Object {index + 1}</label>:
+                                            <span> {data.class}</span>
                                         </p>
                                         <p>
                                             <label>Confidence</label>:{' '}
                                             <span>
-                                                {Math.round(
-                                                    data.confidence * 100
-                                                )}
+                                                {Math.abs(
+                                                    data.score * 100
+                                                ).toFixed(2)}
                                                 %
                                             </span>
                                         </p>

@@ -8,3 +8,4 @@ export * from './mail';
 export * from './mapPin';
 export * from './twitter';
 export * from './user';
+export * as Spinner from './spinner.gif';
