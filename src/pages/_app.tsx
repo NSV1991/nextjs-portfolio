@@ -1,6 +1,5 @@
 import { Layout } from '@components/index';
 import '@styles/globals.scss';
-import { Metadata } from 'next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -40,7 +39,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
             <Head>
                 <title>
-                    {metadata[router.route].title} | Specialist in Web App
+                    {metadata[router.route]?.title} | Specialist in Web App
                     Development | ReactJS | NodeJS
                 </title>
                 <meta
