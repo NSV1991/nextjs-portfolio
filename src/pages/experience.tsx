@@ -1,9 +1,5 @@
-import { ExperienceSection, Layout } from '@components/index';
+import { ExperienceSection } from '@components/index';
 
 export default function Experience() {
-    return (
-        <Layout>
-            <ExperienceSection />
-        </Layout>
-    );
+    return <ExperienceSection />;
 }

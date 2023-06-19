@@ -1,9 +1,5 @@
-import { BlogSection, Layout } from '@components/index';
+import { BlogSection } from '@components/index';
 
 export default function Blogs() {
-    return (
-        <Layout>
-            <BlogSection />
-        </Layout>
-    );
+    return <BlogSection />;
 }

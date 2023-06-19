@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { Layout } from '@components/index';
 import { Spinner } from '@assets/images/icons';
 import Image from 'next/image';
 import styles from './objectDetection.module.scss';
@@ -95,9 +94,10 @@ export default function ObjectDetection() {
     };
 
     return (
-        <Layout>
+        <>
             {isLoading ? (
                 <div className={styles.loader}>
+                    <p>Please wait while OCR model is loading...</p>
                     <Image src={Spinner} alt='loader' />
                 </div>
             ) : (
@@ -183,6 +183,6 @@ export default function ObjectDetection() {
                     </div>
                 </div>
             )}
-        </Layout>
+        </>
     );
 }

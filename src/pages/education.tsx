@@ -1,9 +1,5 @@
-import { EducationSection, Layout } from '@components/index';
+import { EducationSection } from '@components/index';
 
 export default function Education() {
-    return (
-        <Layout>
-            <EducationSection />
-        </Layout>
-    );
+    return <EducationSection />;
 }
