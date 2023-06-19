@@ -6,6 +6,12 @@
     height: 80vh;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    p {
+        margin: 10px;
+        text-align: center;
+    }
 
     img {
         width: 80px;
