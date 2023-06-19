@@ -72,7 +72,10 @@ export default function App({ Component, pageProps }: AppProps) {
                     {metadata?.[router.route]?.title} | Specialist in Web App
                     Development | ReactJS | NodeJS
                 </title>
-                <meta name='description' content='' />
+                <meta
+                    name='description'
+                    content={metadata?.[router.route]?.description}
+                />
                 <meta
                     name='viewport'
                     content='width=device-width, initial-scale=1'
