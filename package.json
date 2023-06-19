@@ -4,11 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
     "generate-sitemap": "next-sitemap",
-    "predeploy": "npm run build && npm run generate-sitemap"
+    "build": "next build && npm run generate-sitemap",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@tensorflow-models/coco-ssd": "^2.2.2",
