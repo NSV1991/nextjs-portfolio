@@ -64,13 +64,16 @@ export default function App({ Component, pageProps }: AppProps) {
                 'Work, Portfolio, Object Detection, TensorFlow, TypeScript, Senior Software Engineer, Web App Development, ReactJS, NextJS',
         },
     };
-
+    console.log(
+        'metadata?.[router.route]?.title:',
+        metadata?.[router.route]?.title
+    );
     return (
         <>
             <Head>
                 <title>
-                    {metadata?.[router.route]?.title} | Specialist in Web App
-                    Development | ReactJS | NodeJS
+                    {metadata?.[router.route]?.title || ''} | Specialist in Web
+                    App Development | ReactJS | NodeJS
                 </title>
                 <meta
                     name='description'
