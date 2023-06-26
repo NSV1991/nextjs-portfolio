@@ -3,6 +3,7 @@ export * from './Button/Button';
 export * from './Card/Card';
 export * from './Header/Header';
 export * from './Layout/Layout';
+export * from './Loader/Loader';
 export * from './Logo/Logo';
 export * from './Navigation/Navigation';
 export * from './ProgressBar/ProgressBar';
