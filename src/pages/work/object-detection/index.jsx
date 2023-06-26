@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { Spinner } from '@assets/images/icons';
 import Image from 'next/image';
 import styles from './objectDetection.module.scss';
 import { Button } from '@components/Button/Button';
 import { browser } from '@tensorflow/tfjs';
 import '@tensorflow/tfjs';
 import { load as cocoModalLoad } from '@tensorflow-models/coco-ssd';
+import { Loader } from '@components/index';
 
 export default function ObjectDetection() {
     const canvasEle = useRef(null);
@@ -95,94 +95,91 @@ export default function ObjectDetection() {
 
     return (
         <>
-            {isLoading ? (
-                <div className={styles.loader}>
-                    <p>Please wait while OCR model is loading...</p>
-                    <Image src={Spinner} alt='loader' />
-                </div>
-            ) : (
-                <div className={styles.container}>
-                    <div className={styles.imageSection}>
-                        <div className={styles.previewArea}>
-                            {uploadedImage && (
-                                <>
-                                    <Image
-                                        ref={imageEle}
-                                        src={uploadedImage}
-                                        alt='sample image'
-                                        width={500}
-                                        height={500}
-                                        style={{ objectFit: 'fill' }}
-                                    />
-                                    <canvas
-                                        ref={canvasEle}
-                                        className={styles.canvas}
-                                        width={500}
-                                        height={500}
-                                    />
-                                </>
-                            )}
-                        </div>
-                        <div>
-                            <label
-                                htmlFor='fileSelect'
-                                className={styles.fileUpload}>
-                                <span>
-                                    <i className='bi bi-upload'></i>
-                                </span>
-                                Upload an image
-                            </label>
-                            <input
-                                id='fileSelect'
-                                type='file'
-                                onChange={setImage}
-                                hidden
-                            />
-                        </div>
-
+            <Loader
+                loading={isLoading}
+                text={'Please wait while model is loading...'}
+            />
+            <div className={styles.container}>
+                <div className={styles.imageSection}>
+                    <div className={styles.previewArea}>
                         {uploadedImage && (
-                            <Button
-                                variant='primary'
-                                customClass={styles.detectionBtn}
-                                onClick={startDetecting}>
-                                Start detection
-                            </Button>
+                            <>
+                                <Image
+                                    ref={imageEle}
+                                    src={uploadedImage}
+                                    alt='sample image'
+                                    width={500}
+                                    height={500}
+                                    style={{ objectFit: 'fill' }}
+                                />
+                                <canvas
+                                    ref={canvasEle}
+                                    className={styles.canvas}
+                                    width={500}
+                                    height={500}
+                                />
+                            </>
                         )}
                     </div>
-                    <div className={styles.dataSection}>
-                        <h3>Results</h3>
-                        <ul>
-                            {detectedObjects.length > 0 ? (
-                                detectedObjects.map((data, index) => (
-                                    <li key={`${data.label}-${index}`}>
-                                        <p>
-                                            <label>Object {index + 1}</label>:
-                                            <span> {data.class}</span>
-                                        </p>
-                                        <p>
-                                            <label>Confidence</label>:{' '}
-                                            <span>
-                                                {Math.abs(
-                                                    data.score * 100
-                                                ).toFixed(2)}
-                                                %
-                                            </span>
-                                        </p>
-                                    </li>
-                                ))
-                            ) : (
-                                <>
-                                    {imageEle.current && (
-                                        <li>
-                                            <p>No Result Found</p>
-                                        </li>
-                                    )}
-                                </>
-                            )}
-                        </ul>
+                    <div>
+                        <label
+                            htmlFor='fileSelect'
+                            className={styles.fileUpload}>
+                            <span>
+                                <i className='bi bi-upload'></i>
+                            </span>
+                            Upload an image
+                        </label>
+                        <input
+                            id='fileSelect'
+                            type='file'
+                            onChange={setImage}
+                            hidden
+                        />
                     </div>
+
+                    {uploadedImage && (
+                        <Button
+                            variant='primary'
+                            customClass={styles.detectionBtn}
+                            onClick={startDetecting}>
+                            Start detection
+                        </Button>
+                    )}
                 </div>
-            )}
+                <div className={styles.dataSection}>
+                    <h3>Results</h3>
+                    <ul>
+                        {detectedObjects.length > 0 ? (
+                            detectedObjects.map((data, index) => (
+                                <li key={`${data.label}-${index}`}>
+                                    <p>
+                                        <label>Object {index + 1}</label>:
+                                        <span> {data.class}</span>
+                                    </p>
+                                    <p>
+                                        <label>Confidence</label>:{' '}
+                                        <span>
+                                            {Math.abs(data.score * 100).toFixed(
+                                                2
+                                            )}
+                                            %
+                                        </span>
+                                    </p>
+                                </li>
+                            ))
+                        ) : (
+                            <>
+                                {imageEle.current && (
+                                    <li>
+                                        <p>No Result Found</p>
+                                    </li>
+                                )}
+                            </>
+                        )}
+                    </ul>
+                </div>
+            </div>
         </>
     );
 }
