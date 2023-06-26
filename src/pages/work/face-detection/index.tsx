@@ -12,6 +12,7 @@ const FaceDetection = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [uploadedImage, setUploadedImage] = useState<string | null>(null);
     const [noFaceDetected, setNoFaceDetected] = useState(false);
+    const [loaderMsg, setLoaderMsg] = useState('');
 
     const canvasElement = useRef(null);
     const originalImgElement = useRef(null);
@@ -28,8 +29,15 @@ const FaceDetection = () => {
 
     const loadModels = async () => {
         if (faceAPI) {
+            setLoaderMsg(
+                'Please wait while SSD Mobile net model is loading...'
+            );
             await faceAPI.loadSsdMobilenetv1Model(MODEL_URL);
+            setLoaderMsg('Please wait while face landmark model is loading...');
             await faceAPI.loadFaceLandmarkModel(MODEL_URL);
+            setLoaderMsg(
+                'Please wait while face expression model is loading...'
+            );
             await faceAPI.loadFaceRecognitionModel(MODEL_URL);
             await faceAPI.loadFaceExpressionModel(MODEL_URL);
             setIsLoading(false);
@@ -46,6 +54,7 @@ const FaceDetection = () => {
                 .withFaceDescriptors()
                 .withFaceExpressions();
 
+            setLoaderMsg('Please wait while canvas dimensions are matched...');
             await faceAPI.matchDimensions(
                 canvasElement.current,
                 originalImgElement.current
@@ -66,13 +75,21 @@ const FaceDetection = () => {
     };
 
     const detectFace = () => {
-        if (originalImgElement.current && canvasElement.current) {
+        if (
+            originalImgElement.current &&
+            canvasElement.current &&
+            faceDescriptions.length > 0
+        ) {
             clearCanvas();
             setIsLoading(true);
+
+            setLoaderMsg('Please wait while detecting faces...');
             faceAPI.draw.drawDetections(
                 canvasElement.current,
                 faceDescriptions
             );
+
+            setLoaderMsg('Please wait while detecting face expressions...');
             faceAPI.draw.drawFaceExpressions(
                 canvasElement.current,
                 faceDescriptions
@@ -154,10 +171,7 @@ const FaceDetection = () => {
 
     return (
         <>
-            <Loader
-                loading={isLoading}
-                text={'Please wait while model is loading...'}
-            />
+            <Loader loading={isLoading} text={loaderMsg} />
             <div className={`container ${styles.container}`}>
                 <div className={styles.imageSection}>
                     <div className={styles.previewArea}>
@@ -200,11 +214,14 @@ const FaceDetection = () => {
                         hidden
                     />
 
-                    <Button variant='secondary' onClick={() => recognizeFace()}>
+                    {/* <Button variant='secondary' onClick={() => recognizeFace()}>
                         Detect Face
-                    </Button>
-                    <Button variant='secondary' onClick={() => detectFace()}>
-                        Recognition Emotion
+                    </Button> */}
+                    <Button
+                        variant='secondary'
+                        onClick={() => detectFace()}
+                        disabled={noFaceDetected}>
+                        Detect Face and Recognition Emotion
                     </Button>
                 </div>
             </div>
