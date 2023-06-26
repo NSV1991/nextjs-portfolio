@@ -12,6 +12,7 @@
   "dependencies": {
     "@tensorflow-models/coco-ssd": "^2.2.2",
     "@tensorflow/tfjs": "^4.7.0",
+    "@tensorflow/tfjs-node": "^4.8.0",
     "@types/node": "18.15.8",
     "@types/react": "18.0.29",
     "@types/react-dom": "18.0.11",
@@ -19,6 +20,7 @@
     "bootstrap-icons": "^1.10.3",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
+    "face-api.js": "^0.22.2",
     "framer-motion": "^10.12.16",
     "next": "^13.4.6",
     "next-sitemap": "^4.1.3",

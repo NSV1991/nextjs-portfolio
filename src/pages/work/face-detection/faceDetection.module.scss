@@ -1,0 +1,148 @@
+@import '@styles/variable.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px 40px;
+}
+
+.imageSection {
+    align-items: center;
+    background: $primaryGradient;
+    border-radius: 10px;
+    box-shadow: $tertiaryShadow;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+    min-height: 70vh;
+    padding: 20px;
+    width: 100%;
+}
+
+.previewArea {
+    width: 100%;
+    min-height: 500px;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px 0 #222222;
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border: none;
+
+    > div {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 500px;
+
+        img {
+            position: absolute;
+            max-height: 100%;
+            // object-fit: contain;
+        }
+
+        canvas {
+            position: absolute;
+            max-height: 100%;
+            // object-fit: contain;
+        }
+    }
+}
+
+.fileUpload {
+    padding: 15px 35px;
+    border-radius: 5px;
+    box-shadow: $tertiaryShadow;
+    transition: 0.4s;
+    font-size: $font-14;
+    font-weight: $font-600;
+    border: none;
+    margin: 20px 0px;
+    background: $primaryTextColor;
+    color: $white;
+    cursor: pointer;
+    text-align: center;
+
+    span {
+        margin-right: 10px;
+        i::before {
+            font-weight: $font-600 !important;
+        }
+    }
+
+    &:hover {
+        color: $white;
+        background: $secondaryGradient;
+    }
+
+    input {
+        display: none;
+    }
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px 40px;
+    flex-wrap: wrap;
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.7;
+
+    p {
+        margin: 10px;
+        text-align: center;
+    }
+
+    img {
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+    }
+}
+
+.canvasOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@media only screen and (max-width: 767px) {
+    .fileUpload {
+        width: 100%;
+    }
+
+    .buttonContainer {
+        button {
+            width: 100%;
+        }
+    }
+}

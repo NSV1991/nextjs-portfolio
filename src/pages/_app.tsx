@@ -63,22 +63,32 @@ export default function App({ Component, pageProps }: AppProps) {
             keywords:
                 'Work, Portfolio, Object Detection, TensorFlow, TypeScript, Senior Software Engineer, Web App Development, ReactJS, NextJS',
         },
+        '/work/face-detection': {
+            title: 'Work - Face Detection with Face API',
+            description:
+                'Explore my work on implementing face detection using Face API and TypeScript. As a Senior Software Engineer specializing in Web App Development, I have leveraged the power of Face API to develop advanced computer vision models for object detection tasks. Discover how I utilize TensorFlow, TypeScript, ReactJS, and other technologies to create efficient and accurate object detection solutions.',
+            keywords:
+                'Work, Portfolio, Face Detection, Face API, TypeScript, Senior Software Engineer, Web App Development, ReactJS, NextJS',
+        },
     };
-
+    console.log(
+        'metadata?.[router.route]?.title:',
+        metadata?.[router.route]?.title
+    );
     return (
         <>
             <Head>
+                <meta
+                    name='viewport'
+                    content='width=device-width, initial-scale=1.0'
+                />
                 <title>
-                    {metadata?.[router.route]?.title} | Specialist in Web App
-                    Development | ReactJS | NodeJS
+                    {metadata?.[router.route]?.title || ''} | Specialist in Web
+                    App Development | ReactJS | NodeJS
                 </title>
                 <meta
                     name='description'
                     content={metadata?.[router.route]?.description}
-                />
-                <meta
-                    name='viewport'
-                    content='width=device-width, initial-scale=1'
                 />
                 <meta
                     name='keywords'
