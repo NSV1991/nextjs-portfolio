@@ -1,49 +1,50 @@
-import Image from 'next/image';
-import * as faceAPI from 'face-api.js';
-import { useEffect, useRef, useState } from 'react';
-import friendsReunionImg from './images/friendsreunion.jpg';
-import styles from './faceDetection.module.scss';
 import { Button, Loader } from '@components/index';
-import { Spinner } from '@assets/images/icons';
+import { useEffect, useRef, useState } from 'react';
+import * as faceAPI from 'face-api.js';
+import Image from 'next/image';
+import styles from './faceDetection.module.scss';
 
 const FaceDetection = () => {
     const MODEL_URL = '/models';
     const THRESHOLD = 0.6;
 
-    const originalImgElement = useRef(null);
-    const canvasElement = useRef(null);
     const [faceDescriptions, setFaceDescriptions] = useState<any>([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+    const [noFaceDetected, setNoFaceDetected] = useState(false);
+
+    const canvasElement = useRef(null);
+    const originalImgElement = useRef(null);
 
     useEffect(() => {
         loadModels();
     }, []);
 
+    useEffect(() => {
+        if (uploadedImage) {
+            mapDimensions();
+        }
+    }, [uploadedImage]);
+
     const loadModels = async () => {
         if (faceAPI) {
-            console.log('load loadSsdMobilenetv1Model');
             await faceAPI.loadSsdMobilenetv1Model(MODEL_URL);
-            console.log('load loadFaceLandmarkModel');
             await faceAPI.loadFaceLandmarkModel(MODEL_URL);
-            console.log('load loadFaceRecognitionModel');
             await faceAPI.loadFaceRecognitionModel(MODEL_URL);
-            console.log('load loadFaceExpressionModel');
             await faceAPI.loadFaceExpressionModel(MODEL_URL);
-
-            await mapDimensions();
+            setIsLoading(false);
         }
     };
 
     const mapDimensions = async () => {
         if (originalImgElement.current && canvasElement.current) {
-            console.log('allFaceData loading');
+            setNoFaceDetected(false);
+            setIsLoading(true);
             const allFaceData = await faceAPI
                 .detectAllFaces(originalImgElement.current)
                 .withFaceLandmarks()
                 .withFaceDescriptors()
                 .withFaceExpressions();
-
-            console.log('Match dimensions');
 
             await faceAPI.matchDimensions(
                 canvasElement.current,
@@ -51,14 +52,14 @@ const FaceDetection = () => {
             );
 
             if (originalImgElement.current && canvasElement.current) {
-                console.log('fetch results');
-                const result = faceAPI.resizeResults(allFaceData, {
+                const results = await faceAPI.resizeResults(allFaceData, {
                     width: (originalImgElement.current as HTMLImageElement)
                         .width,
                     height: (originalImgElement.current as HTMLImageElement)
                         .height,
                 });
-                setFaceDescriptions(result);
+                setFaceDescriptions(results);
+                results.length === 0 && setNoFaceDetected(true);
             }
             setIsLoading(false);
         }
@@ -143,25 +144,69 @@ const FaceDetection = () => {
         }
     };
 
+    const setImage = (event: any) => {
+        if (event?.target?.files && event?.target?.files[0]) {
+            const image = event.target.files[0];
+            clearCanvas();
+            setUploadedImage(URL.createObjectURL(image));
+        }
+    };
+
     return (
         <>
-            <Loader loading={isLoading} />
-            <div className={styles.container}>
-                <Image
-                    src={friendsReunionImg}
-                    ref={originalImgElement}
-                    alt='friendsReunionImg'
-                />
-                <canvas
-                    ref={canvasElement}
-                    className={styles.canvasOverlay}></canvas>
+            <Loader
+                loading={isLoading}
+                text={'Please wait while model is loading...'}
+            />
+            <div className={`container ${styles.container}`}>
+                <div className={styles.imageSection}>
+                    <div className={styles.previewArea}>
+                        {uploadedImage && (
+                            <div>
+                                <Image
+                                    ref={originalImgElement}
+                                    src={uploadedImage}
+                                    alt='sample image'
+                                    width={500}
+                                    height={500}
+                                />
+                                <canvas
+                                    ref={canvasElement}
+                                    className={styles.canvas}
+                                    width={500}
+                                    height={500}
+                                />
+                            </div>
+                        )}
+                    </div>
+                    {noFaceDetected && (
+                        <div className='alert alert-danger' role='alert'>
+                            No faces detected!
+                        </div>
+                    )}
+                </div>
 
-                <Button variant='primary' onClick={() => recognizeFace()}>
-                    Recognition Face
-                </Button>
-                <Button variant='primary' onClick={() => detectFace()}>
-                    Recognition Emotion
-                </Button>
+                <div className={styles.buttonContainer}>
+                    <label htmlFor='fileSelect' className={styles.fileUpload}>
+                        <span>
+                            <i className='bi bi-upload'></i>
+                        </span>
+                        Upload an image
+                    </label>
+                    <input
+                        id='fileSelect'
+                        type='file'
+                        onChange={setImage}
+                        hidden
+                    />
+
+                    <Button variant='secondary' onClick={() => recognizeFace()}>
+                        Detect Face
+                    </Button>
+                    <Button variant='secondary' onClick={() => detectFace()}>
+                        Recognition Emotion
+                    </Button>
+                </div>
             </div>
         </>
     );

@@ -83,14 +83,15 @@
 
 .headerWrapper {
     height: 90px;
-    padding: 0 64px;
     align-items: center;
     margin: 0;
 
-    .headerLeft {
-        justify-content: flex-start;
-        display: flex;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px;
 
     .headerCenter {
         justify-content: flex-end;
@@ -111,25 +112,8 @@
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1599px) {
+@media only screen and (min-width: 768px) {
     .headerWrapper {
-        padding: 0 30px;
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    .headerWrapper {
-        padding: 0 20px;
-        height: 80px;
-    }
-}
-@media only screen and (max-width: 575px) {
-    .headerWrapper {
-        padding: 0 3px;
-    }
-}
-@media only screen and (max-width: 479px) {
-    .headerWrapper {
-        padding: 0;
+        padding: 0 25px;
     }
 }

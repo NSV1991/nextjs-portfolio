@@ -12,8 +12,8 @@ export const Button = (props: ButtonProps) => {
             {...props}
             type={props.type || 'button'}
             className={`${styles.button} ${
-                props?.customClass ? props?.customClass : ''
-            }`}>
+                props.variant === 'secondary' && styles.secondary
+            } ${props?.customClass ? props?.customClass : ''}`}>
             {props.children}
         </button>
     );

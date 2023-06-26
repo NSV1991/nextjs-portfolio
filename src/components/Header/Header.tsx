@@ -46,31 +46,21 @@ export const Header: FunctionComponent = () => {
                     isSticky && styles.stickyHeader
                 } `}
                 ref={stickyHeader}>
-                <div className={`${styles.headerWrapper} row`}>
-                    <div className='col-lg-2 col-6 px-3'>
-                        <div className={styles.headerLeft}>
-                            <Logo />
-                        </div>
-                    </div>
+                <div className={styles.headerWrapper}>
+                    <Logo />
                     {!isMobile && (
-                        <div className='col-lg-10 col-6'>
-                            <div className={styles.headerCenter}>
-                                <Navigation />
-                            </div>
+                        <div className={styles.headerCenter}>
+                            <Navigation />
                         </div>
                     )}
                     {isMobile && (
-                        <>
-                            <div className='col-lg-2 col-6 px-3'>
-                                <div
-                                    className={styles.headerRight}
-                                    onClick={() => {
-                                        setIsSidebarOpen(1);
-                                    }}>
-                                    <i className='bi bi-list'></i>
-                                </div>
-                            </div>
-                        </>
+                        <div
+                            className={styles.headerRight}
+                            onClick={() => {
+                                setIsSidebarOpen(1);
+                            }}>
+                            <i className='bi bi-list'></i>
+                        </div>
                     )}
                 </div>
             </header>

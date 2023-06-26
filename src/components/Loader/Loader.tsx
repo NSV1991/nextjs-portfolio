@@ -22,7 +22,7 @@ export const Loader = ({ loading, text }: LoaderProps) => {
             {loading && (
                 <div className={styles.loader}>
                     {text}
-                    <Image src={Spinner} alt='loader' />
+                    <Image src={Spinner} alt='loader' priority />
                 </div>
             )}
         </>
