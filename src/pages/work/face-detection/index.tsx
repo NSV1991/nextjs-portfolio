@@ -3,10 +3,10 @@ import * as faceAPI from 'face-api.js';
 import { useEffect, useRef, useState } from 'react';
 import friendsReunionImg from './images/friendsreunion.jpg';
 import styles from './faceDetection.module.scss';
-import { Button } from '@components/index';
+import { Button, Loader } from '@components/index';
 import { Spinner } from '@assets/images/icons';
 
-export default function FaceDetection() {
+const FaceDetection = () => {
     const MODEL_URL = '/models';
     const THRESHOLD = 0.6;
 
@@ -145,12 +145,8 @@ export default function FaceDetection() {
 
     return (
         <>
+            <Loader loading={isLoading} />
             <div className={styles.container}>
-                {isLoading && (
-                    <div className={styles.loader}>
-                        <Image src={Spinner} alt='loader' />
-                    </div>
-                )}
                 <Image
                     src={friendsReunionImg}
                     ref={originalImgElement}
@@ -169,4 +165,6 @@ export default function FaceDetection() {
             </div>
         </>
     );
-}
+};
+
+export default FaceDetection;
