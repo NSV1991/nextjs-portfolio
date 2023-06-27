@@ -198,31 +198,32 @@ const FaceDetection = () => {
                             No faces detected!
                         </div>
                     )}
-                </div>
+                    <div className={styles.buttonContainer}>
+                        <label
+                            htmlFor='fileSelect'
+                            className={styles.fileUpload}>
+                            <span>
+                                <i className='bi bi-upload'></i>
+                            </span>
+                            Upload an image
+                        </label>
+                        <input
+                            id='fileSelect'
+                            type='file'
+                            onChange={setImage}
+                            hidden
+                        />
 
-                <div className={styles.buttonContainer}>
-                    <label htmlFor='fileSelect' className={styles.fileUpload}>
-                        <span>
-                            <i className='bi bi-upload'></i>
-                        </span>
-                        Upload an image
-                    </label>
-                    <input
-                        id='fileSelect'
-                        type='file'
-                        onChange={setImage}
-                        hidden
-                    />
-
-                    {/* <Button variant='secondary' onClick={() => recognizeFace()}>
+                        {/* <Button variant='secondary' onClick={() => recognizeFace()}>
                         Detect Face
                     </Button> */}
-                    <Button
-                        variant='secondary'
-                        onClick={() => detectFace()}
-                        disabled={noFaceDetected}>
-                        Detect Face and Recognition Emotion
-                    </Button>
+                        <Button
+                            variant='primary'
+                            onClick={() => detectFace()}
+                            disabled={noFaceDetected}>
+                            Detect Face and Recognition Emotion
+                        </Button>
+                    </div>
                 </div>
             </div>
         </>

@@ -2,7 +2,7 @@ import { Card } from '@components/index';
 import styles from './WorkSamples.module.scss';
 
 import ObjectDetectionImage from '@assets/images/work/objectDetection.jpg';
-import FaceDetectionImage from '@assets/images/work/new.png';
+import FaceDetectionImage from '@assets/images/work/faceDetection.png';
 import ElementImage from '@assets/images/work/element.png';
 
 type WorkDetails = {

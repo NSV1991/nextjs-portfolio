@@ -64,24 +64,30 @@
 }
 
 .fileUpload {
-    padding: 15px 35px;
+    background: $primaryGradient;
     border-radius: 5px;
-    box-shadow: $tertiaryShadow;
-    transition: 0.4s;
+    border: none;
+    box-shadow: $primaryShadow;
+    color: $primaryTextColor;
+    cursor: pointer;
     font-size: $font-14;
     font-weight: $font-600;
-    border: none;
     margin: 20px 0px;
-    background: $primaryTextColor;
-    color: $white;
-    cursor: pointer;
+    padding: 15px 35px;
     text-align: center;
+    transition: $secondaryTransition;
 
     span {
         margin-right: 10px;
         i::before {
             font-weight: $font-600 !important;
         }
+    }
+
+    &:hover {
+        background: $primaryTextColor;
+        color: $white;
+        transform: translateY(5px);
     }
 
     input {

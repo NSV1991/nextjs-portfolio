@@ -7,7 +7,6 @@ export * from './Loader/Loader';
 export * from './Logo/Logo';
 export * from './Navigation/Navigation';
 export * from './ProgressBar/ProgressBar';
-export * from './Section/BlogSection/BlogSection';
 export * from './Section/EducationSection/EducationSection';
 export * from './Section/ExperienceSection/ExperienceSection';
 export * from './Section/SkillSection/SkillSection';
