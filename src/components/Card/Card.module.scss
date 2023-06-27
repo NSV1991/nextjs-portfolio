@@ -34,35 +34,34 @@
 
         .content {
             padding-top: 20px;
+            > a {
+                .blogDetails {
+                    display: flex;
+                    justify-content: space-between;
+                    padding-bottom: 10px;
 
-            .blogDetails {
-                display: flex;
-                justify-content: space-between;
-                padding-bottom: 10px;
+                    .category {
+                        min-height: 40px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
 
-                .category {
-                    min-height: 40px;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-
-                    > p {
-                        color: $primaryTextColor;
-                        font-weight: $font-600;
-                        font-size: $font-12;
-                        letter-spacing: 1px;
-                        text-transform: uppercase;
-                        display: block;
+                        > p {
+                            color: $primaryTextColor;
+                            font-weight: $font-600;
+                            font-size: $font-12;
+                            letter-spacing: 1px;
+                            text-transform: uppercase;
+                            display: block;
+                        }
                     }
                 }
-            }
 
-            > h4 {
-                margin: 0;
+                > h4 {
+                    margin: 0;
 
-                > a {
                     transition: $secondaryTransition;
                     color: $secondaryTextColor;
                     font-weight: $font-600;
@@ -84,8 +83,10 @@
                         font-weight: $font-600;
                         transition: $secondaryTransition;
                     }
+                }
 
-                    &:hover {
+                &:hover {
+                    > h4 {
                         color: $primaryTextColor;
 
                         > i {

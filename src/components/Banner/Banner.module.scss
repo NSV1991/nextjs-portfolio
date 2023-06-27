@@ -144,7 +144,7 @@
 
                                 &:hover {
                                     background: $secondaryGradient;
-                                    transform: translateY(-5px);
+                                    transform: translateY(5px);
 
                                     svg {
                                         color: $white;
@@ -216,7 +216,7 @@
                         &:hover {
                             background: $secondaryGradient;
                             color: $white;
-                            transform: translateY(-5px);
+                            transform: translateY(5px);
                         }
                     }
                 }
