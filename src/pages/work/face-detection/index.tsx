@@ -1,13 +1,20 @@
 import { Button, Loader } from '@components/index';
 import { useEffect, useRef, useState } from 'react';
-import * as faceAPI from 'face-api.js';
 import Image from 'next/image';
 import styles from './faceDetection.module.scss';
+import { MODEL_URL } from '../../../constants';
+import {
+    detectAllFaces,
+    draw,
+    loadFaceExpressionModel,
+    loadFaceLandmarkModel,
+    loadFaceRecognitionModel,
+    loadSsdMobilenetv1Model,
+    matchDimensions,
+    resizeResults,
+} from 'face-api.js';
 
 const FaceDetection = () => {
-    const MODEL_URL = '/models';
-    const THRESHOLD = 0.6;
-
     const [faceDescriptions, setFaceDescriptions] = useState<any>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [uploadedImage, setUploadedImage] = useState<string | null>(null);
@@ -28,40 +35,33 @@ const FaceDetection = () => {
     }, [uploadedImage]);
 
     const loadModels = async () => {
-        if (faceAPI) {
-            setLoaderMsg(
-                'Please wait while SSD Mobile net model is loading...'
-            );
-            await faceAPI.loadSsdMobilenetv1Model(MODEL_URL);
-            setLoaderMsg('Please wait while face landmark model is loading...');
-            await faceAPI.loadFaceLandmarkModel(MODEL_URL);
-            setLoaderMsg(
-                'Please wait while face expression model is loading...'
-            );
-            await faceAPI.loadFaceRecognitionModel(MODEL_URL);
-            await faceAPI.loadFaceExpressionModel(MODEL_URL);
-            setIsLoading(false);
-        }
+        setLoaderMsg('Please wait while SSD Mobile net model is loading...');
+        await loadSsdMobilenetv1Model(MODEL_URL);
+        setLoaderMsg('Please wait while face landmark model is loading...');
+        await loadFaceLandmarkModel(MODEL_URL);
+        setLoaderMsg('Please wait while face expression model is loading...');
+        await loadFaceRecognitionModel(MODEL_URL);
+        await loadFaceExpressionModel(MODEL_URL);
+        setIsLoading(false);
     };
 
     const mapDimensions = async () => {
         if (originalImgElement.current && canvasElement.current) {
             setNoFaceDetected(false);
             setIsLoading(true);
-            const allFaceData = await faceAPI
-                .detectAllFaces(originalImgElement.current)
+            const allFaceData = await detectAllFaces(originalImgElement.current)
                 .withFaceLandmarks()
                 .withFaceDescriptors()
                 .withFaceExpressions();
 
             setLoaderMsg('Please wait while canvas dimensions are matched...');
-            await faceAPI.matchDimensions(
+            await matchDimensions(
                 canvasElement.current,
                 originalImgElement.current
             );
 
             if (originalImgElement.current && canvasElement.current) {
-                const results = await faceAPI.resizeResults(allFaceData, {
+                const results = await resizeResults(allFaceData, {
                     width: (originalImgElement.current as HTMLImageElement)
                         .width,
                     height: (originalImgElement.current as HTMLImageElement)
@@ -84,74 +84,13 @@ const FaceDetection = () => {
             setIsLoading(true);
 
             setLoaderMsg('Please wait while detecting faces...');
-            faceAPI.draw.drawDetections(
-                canvasElement.current,
-                faceDescriptions
-            );
+            draw.drawDetections(canvasElement.current, faceDescriptions);
 
             setLoaderMsg('Please wait while detecting face expressions...');
-            faceAPI.draw.drawFaceExpressions(
-                canvasElement.current,
-                faceDescriptions
-            );
+            draw.drawFaceExpressions(canvasElement.current, faceDescriptions);
 
             setIsLoading(false);
         }
-    };
-
-    const recognizeFace = async () => {
-        setIsLoading(true);
-        clearCanvas();
-        const labels = [
-            'ross',
-            'rachel',
-            'chandler',
-            'monica',
-            'phoebe',
-            'joey',
-        ];
-
-        const labeledFaceDescriptors = await Promise.all(
-            labels.map(async (label) => {
-                const imgUrl = `images/${label}.jpg`;
-                const img = await faceAPI.fetchImage(imgUrl);
-
-                const faceDescription = await faceAPI
-                    .detectSingleFace(img)
-                    .withFaceLandmarks()
-                    .withFaceDescriptor();
-                if (!faceDescription) {
-                    throw new Error(`no faces detected for ${label}`);
-                }
-
-                const faceDescriptors = [faceDescription.descriptor];
-                return new faceAPI.LabeledFaceDescriptors(
-                    label,
-                    faceDescriptors
-                );
-            })
-        );
-
-        loadRecognizedFaces(labeledFaceDescriptors);
-    };
-
-    const loadRecognizedFaces = (labeledFaceDescriptors: any) => {
-        const faceMatcher = new faceAPI.FaceMatcher(
-            labeledFaceDescriptors,
-            THRESHOLD
-        );
-
-        const results = faceDescriptions.map((fd: any) =>
-            faceMatcher.findBestMatch(fd.descriptor)
-        );
-        results.forEach((bestMatch: any, i: number) => {
-            const box = faceDescriptions[i]?.detection.box;
-            const text = bestMatch.toString();
-            const drawBox = new faceAPI.draw.DrawBox(box, { label: text });
-            canvasElement.current && drawBox.draw(canvasElement.current);
-        });
-
-        setIsLoading(false);
     };
 
     const clearCanvas = () => {
@@ -173,6 +112,7 @@ const FaceDetection = () => {
         <>
             <Loader loading={isLoading} text={loaderMsg} />
             <div className={`container ${styles.container}`}>
+                <h1>Face Detection</h1>
                 <div className={styles.imageSection}>
                     <div className={styles.previewArea}>
                         {uploadedImage && (
@@ -214,9 +154,6 @@ const FaceDetection = () => {
                             hidden
                         />
 
-                        {/* <Button variant='secondary' onClick={() => recognizeFace()}>
-                        Detect Face
-                    </Button> */}
                         <Button
                             variant='primary'
                             onClick={() => detectFace()}

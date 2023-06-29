@@ -3,8 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import styles from './objectDetection.module.scss';
 import { Button } from '@components/Button/Button';
-import { browser } from '@tensorflow/tfjs';
-import '@tensorflow/tfjs';
+import * as tf from '@tensorflow/tfjs';
 import { load as cocoModalLoad } from '@tensorflow-models/coco-ssd';
 import { Loader } from '@components/index';
 
@@ -63,7 +62,7 @@ export default function ObjectDetection() {
     };
 
     const startDetecting = async () => {
-        const image = browser.fromPixels(imageEle.current);
+        const image = tf.browser.fromPixels(imageEle.current);
         const predictions = await objectDetector.detect(image);
 
         setDetectedObjects(predictions);
