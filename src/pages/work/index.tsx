@@ -3,6 +3,7 @@ import styles from './WorkSamples.module.scss';
 
 import ObjectDetectionImage from '@assets/images/work/objectDetection.jpg';
 import FaceDetectionImage from '@assets/images/work/faceDetection.png';
+import FaceRecognitionImage from '@assets/images/work/faceRecognition.png';
 import ElementImage from '@assets/images/work/element.png';
 
 type WorkDetails = {
@@ -22,13 +23,19 @@ export const getStaticProps = () => {
         props: {
             workList: [
                 {
-                    title: 'Detect face from Image using face API',
+                    title: 'Face recognition using face-api.js',
+                    category: 'Personal',
+                    image: FaceRecognitionImage.src,
+                    link: 'face-recognition',
+                },
+                {
+                    title: 'Detect face and emotion recognition using face-api.js',
                     category: 'Personal',
                     image: FaceDetectionImage.src,
                     link: 'face-detection',
                 },
                 {
-                    title: 'Detect Object from Image using ML5',
+                    title: 'Detect Object from Image using TensorFlow',
                     category: 'Personal',
                     image: ObjectDetectionImage.src,
                     link: 'object-detection',
@@ -51,7 +58,7 @@ export default function WorkSamples({ workList }: WorkProps) {
             <div className='container'>
                 <div className='row'>
                     <div className='col-lg-12 text-center'>
-                        <span className={styles.subtitle}>Work</span>
+                        <h1 className={styles.subtitle}>Work</h1>
                         <h2 className='text-6xl font-bold'>My Work</h2>
                     </div>
                 </div>
