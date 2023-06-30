@@ -99,6 +99,10 @@ export default function App({ Component, pageProps }: AppProps) {
                     content={metadata[router.route]?.keywords}
                 />
                 <meta name='author' content='Neeraj Sarang Vageele' />
+                <meta
+                    name='google-site-verification'
+                    content='RRjJDBI2m9UiysYnZLYsSP-LMBXbD3XlPHrSsJrTm1E'
+                />
             </Head>
             <Layout>
                 <Component {...pageProps} />
