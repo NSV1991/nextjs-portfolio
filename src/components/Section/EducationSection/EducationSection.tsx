@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from './EducationSection.module.scss';
 import EducationImg from '@assets/images/education/EducationImage.webp';
+import Link from 'next/link';
 
 export const EducationSection = () => {
     return (
@@ -20,10 +21,15 @@ export const EducationSection = () => {
                     <div className='col-12'>
                         <div className={styles.educationDetails}>
                             <div className={styles.educationImage}>
-                                <Image src={EducationImg} alt='Computer' />
+                                <Image
+                                    src={EducationImg}
+                                    alt='Computer Engineer'
+                                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                    priority
+                                />
                             </div>
                             <div className={styles.educationInfo}>
-                                <a
+                                <Link
                                     href='https://www.gtu.ac.in/'
                                     target='_blank'>
                                     <span>2013-2017</span>
@@ -32,7 +38,7 @@ export const EducationSection = () => {
                                         <i className='bi bi-arrow-up-right'></i>
                                     </h4>
                                     <h6>Computer Engineering</h6>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
