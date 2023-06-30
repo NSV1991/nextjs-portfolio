@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './EducationSection.module.scss';
-import EducationImg from '@assets/images/education/EducationImage.jpg';
+import EducationImg from '@assets/images/education/EducationImage.webp';
 
 export const EducationSection = () => {
     return (

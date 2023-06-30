@@ -30,6 +30,7 @@ export const Card: FunctionComponent<CardProps> = ({
                         height={1054}
                         loader={({ src }) => src}
                         style={{ objectFit: 'fill' }}
+                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                         priority
                     />
                 </div>
