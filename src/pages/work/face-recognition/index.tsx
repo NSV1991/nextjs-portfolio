@@ -19,7 +19,7 @@ import {
     MODEL_URL,
     VALID_IMAGE_TYPES,
 } from '../../../constants';
-import styles from './faceDetection.module.scss';
+import styles from './faceRecognition.module.scss';
 
 export default function FaceRecognition() {
     const [dataSetImages, setDataSetImages] = useState<Array<any>>([]);
