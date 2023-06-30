@@ -10,9 +10,11 @@ export const Logo = () => {
                 <Image
                     alt='logo'
                     className={`${styles.logoImage} rounded-circle`}
+                    height='50'
                     priority
                     sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                     src={SmallLogo}
+                    width='50'
                 />
             </Link>
         </div>
