@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import styles from './ExperienceSection.module.scss';
+import Link from 'next/link';
 
-import ApexonImg from '@assets/images/portfolio/apexonNew.png';
-import TRTImg from '@assets/images/portfolio/thirdrocktechknoNew.png';
+import ApexonImg from '@assets/images/portfolio/apexonNew.webp';
+import TRTImg from '@assets/images/portfolio/thirdrocktechknoNew.webp';
 
 export const ExperienceSection = () => {
     return (
@@ -22,10 +23,15 @@ export const ExperienceSection = () => {
                     <div className='col-12'>
                         <div className={styles.experienceDetails}>
                             <div className={styles.experienceImage}>
-                                <Image src={ApexonImg} alt='Apexon' />
+                                <Image
+                                    src={ApexonImg}
+                                    alt='Apexon'
+                                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                    priority
+                                />
                             </div>
                             <div className={styles.experienceInfo}>
-                                <a
+                                <Link
                                     href='https://www.apexon.com/'
                                     target='_blank'>
                                     <span>2022-Present</span>
@@ -34,16 +40,21 @@ export const ExperienceSection = () => {
                                         <i className='bi bi-arrow-up-right'></i>
                                     </h4>
                                     <h6>Senior Software Engineer</h6>
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
                         <div className={styles.experienceDetails}>
                             <div className={styles.experienceImage}>
-                                <Image src={TRTImg} alt='TRT' />
+                                <Image
+                                    src={TRTImg}
+                                    alt='TRT'
+                                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                    priority
+                                />
                             </div>
                             <div className={styles.experienceInfo}>
-                                <a
+                                <Link
                                     href='https://www.thirdrocktechkno.com/'
                                     target='_blank'>
                                     <span>2017-2022</span>
@@ -52,7 +63,7 @@ export const ExperienceSection = () => {
                                         <i className='bi bi-arrow-up-right'></i>
                                     </h4>
                                     <h6>Programmer Analyst</h6>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

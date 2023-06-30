@@ -1,10 +1,10 @@
 import { Card } from '@components/index';
 import styles from './WorkSamples.module.scss';
 
-import ObjectDetectionImage from '@assets/images/work/objectDetection.jpg';
-import FaceDetectionImage from '@assets/images/work/faceDetection.png';
-import FaceRecognitionImage from '@assets/images/work/faceRecognition.png';
-import ElementImage from '@assets/images/work/element.png';
+import ObjectDetectionImage from '@assets/images/work/objectDetection.webp';
+import FaceDetectionImage from '@assets/images/work/faceDetection.webp';
+import FaceRecognitionImage from '@assets/images/work/faceRecognition.webp';
+import ElementImage from '@assets/images/work/element.webp';
 
 type WorkDetails = {
     title: string;
