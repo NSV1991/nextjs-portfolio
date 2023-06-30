@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './Banner.module.scss';
-import HeroImage from '@assets/images/neerajBanner.png';
+import HeroImage from '@assets/images/neerajBanner.webp';
 import {
     FileIcon,
     GitHubIcon,
