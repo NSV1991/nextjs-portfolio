@@ -119,7 +119,12 @@ const HeroImageSection = () => {
         <div className='order-1 order-xl-2 col-lg-12 col-xl-7'>
             <div className={styles.imageSection}>
                 <div>
-                    <Image src={HeroImage} alt='Portfolio Banner' />
+                    <Image
+                        src={HeroImage}
+                        alt='neeraj vageele banner image'
+                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                        priority
+                    />
                 </div>
             </div>
         </div>
