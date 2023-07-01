@@ -59,7 +59,7 @@ export default function WorkSamples({ workList }: WorkProps) {
                 <div className='row'>
                     <div className='col-lg-12 text-center'>
                         <h1 className={styles.subtitle}>Work</h1>
-                        <h2 className='text-6xl font-bold'>My Work</h2>
+                        <h2 className='text-6xl font-bold'>Explore My Projects</h2>
                     </div>
                 </div>
                 <div className={`row ${styles.blogContainer}`}>

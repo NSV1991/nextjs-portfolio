@@ -36,8 +36,8 @@ export const Navigation = ({
         { text: 'Home', link: '/' },
         { text: 'Experience', link: '/experience' },
         { text: 'Education', link: '/education' },
-        { text: 'Skills', link: '/skills' },
-        { text: 'Blogs', link: '/blogs' },
+        { text: 'Skill', link: '/skill' },
+        { text: 'Blog', link: '/blog' },
         { text: 'Work', link: '/work' },
     ];
 
