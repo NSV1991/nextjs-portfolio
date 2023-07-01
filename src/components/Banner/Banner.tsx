@@ -22,8 +22,7 @@ const UserInfo = () => {
                     <UserIcon />
                 </div>
                 <h2 className={styles.title}>
-                    Hi, I&apos;m
-                    <span>Neeraj Sarang Vageele</span>
+                    Hi, I&apos;m <span> Neeraj Sarang Vageele</span>
                 </h2>
                 <p className={styles.subtitle}>
                     Senior Software Engineer working for Apexon in Gujarat,
