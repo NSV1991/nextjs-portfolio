@@ -8,7 +8,7 @@ export const Logo = () => {
         <div className={styles.logo}>
             <Link href='/'>
                 <Image
-                    alt='logo'
+                    alt='neeraj vageele logo image'
                     className={`${styles.logoImage} rounded-circle`}
                     height='50'
                     priority

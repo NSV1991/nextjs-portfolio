@@ -80,7 +80,7 @@ const SocialInfo = () => {
 const ResumeAndContact = () => {
     return (
         <div className={styles.userInfoFooter}>
-            <span>Download my curriculum vitae:</span>
+            <span>Download my curriculum vitae</span>
             <div>
                 <Link href='files/Neeraj_Vageele_CV.pdf' target='_blank'>
                     <span>DOWNLOAD CV</span>

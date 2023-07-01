@@ -4,6 +4,8 @@ import { Navigation } from '../Navigation/Navigation';
 import styles from './Header.module.scss';
 import { useIsMobileView } from '../../utils';
 import { AnimatePresence, motion, useCycle } from 'framer-motion';
+import LogoImage from '@assets/images/logo/Logo-transparent.webp';
+import Image from 'next/image';
 
 export const Header: FunctionComponent = () => {
     const stickyHeader = useRef<HTMLElement>(null);
@@ -98,7 +100,15 @@ export const Header: FunctionComponent = () => {
                                         <i className='bi bi-x-lg'></i>
                                     </span>
                                 </div>
-                                <p>Senior Software Engineer</p>
+                                <Image
+                                    className={styles.logoImage}
+                                    alt='neeraj vageele logo'
+                                    height='50'
+                                    priority
+                                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                    src={LogoImage}
+                                    width='300'
+                                />
                                 <div className={styles.content}>
                                     <Navigation
                                         onLinkClick={() => {
