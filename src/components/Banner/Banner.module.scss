@@ -245,3 +245,31 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .bannerContainer {
+        .banner {
+            .info {
+                .topSection {
+                    .header {
+                        .title {
+                            font-size: $font-36;
+                        }
+                    }
+
+                    .socialInfo {
+                        text-align: center;
+
+                        .iconWrapper {
+                            justify-content: center;
+                        }
+                    }
+                }
+
+                .userInfoFooter {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
