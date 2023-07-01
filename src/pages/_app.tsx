@@ -114,7 +114,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     property='og:description'
                     content={metadata?.[router.route]?.description}
                 />
-                <meta property='og:image' content='/logo-icon.svg' />
+                <meta property='og:image' content='https://neerajvageele.com/logo-icon.svg' />
                 <meta
                     property='og:url'
                     content={`https://neerajvageele.com${router.route}`}
