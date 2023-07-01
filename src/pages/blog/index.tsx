@@ -28,8 +28,8 @@ export default function Blogs({ blogs }: { blogs: Blog[] }) {
             <div className='container'>
                 <div className='row'>
                     <div className='col-lg-12 text-center'>
-                        <span className={styles.subtitle}>Blogs</span>
-                        <h2 className='text-6xl font-bold'>My Blogs</h2>
+                        <span className={styles.subtitle}>Blog</span>
+                        <h2 className='text-6xl font-bold'>Discover Blog Insights</h2>
                     </div>
                 </div>
                 <div className={`row ${styles.blogContainer}`}>

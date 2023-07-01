@@ -15,49 +15,49 @@ export default function App({ Component, pageProps }: AppProps) {
         };
     } = {
         '/': {
-            title: 'Senior Software Engineer |',
+            title: 'Senior Software Engineer | Neeraj Sarang Vageele |',
             description:
                 'Browse through my portfolio of work as a Senior Software Engineer specializing in Web App Development. With about 6 years of experience, I have expertise in ReactJS, JavaScript, TypeScript, NodeJS, NextJS, NestJS, ExpressJS, and AWS services.',
             keywords:
                 'Senior Software Engineer, Web App Development, ReactJS, Ahmedabad, Gujarat, India, JavaScript, TypeScript, NodeJS, NextJS, NestJS, ExpressJS, AWS services, Neeraj, Neeraj Vageele, Neeraj Sarang Vageele',
         },
         '/experience': {
-            title: 'Experience - Senior Software Engineer |',
+            title: 'Experience - Neeraj Sarang Vageele | Senior Software Engineer |',
             description:
                 'Explore my professional experience working on diverse projects in various domains. I have successfully delivered projects in domains such as E-commerce, E-signature solutions, Car dealer portals, Online Education, Betting web Apps, and Health care. Discover how I have contributed to these industries by leveraging my skills in web development, software engineering, and other relevant technologies.',
             keywords:
                 'Experience, Portfolio, E-commerce, E-signature solution, Car dealer portal, Online Education, Betting web App, Health care,Senior Software Engineer, Web App Development, ReactJS, Ahmedabad, Gujarat, India, JavaScript, TypeScript, NodeJS, NextJS, NestJS, ExpressJS, AWS services, Neeraj, Neeraj Vageele, Neeraj Sarang Vageele',
         },
         '/education': {
-            title: 'Education - Senior Software Engineer |',
+            title: 'Education - Neeraj Sarang Vageele | Senior Software Engineer |',
             description:
                 "Learn about my educational background and achievements. I completed my Bachelor's of Engineering in Computer Engineering in 2017. During my studies, I gained comprehensive knowledge in various areas of computer science and developed a strong foundation in programming, algorithms, and software development.",
             keywords:
                 "Education, Portfolio, Bachelor's Degree, Engineering, Computer Science, Programming, Algorithms, Software Development, Neeraj, Neeraj Vageele, Neeraj Sarang Vageele",
         },
-        '/skills': {
-            title: 'Skills - Senior Software Engineer |',
+        '/skill': {
+            title: 'Skill - Neeraj Sarang Vageele | Senior Software Engineer |',
             description:
                 'Discover my skills and expertise in web development, project management, and tools. I specialize in React, Node, JavaScript, NextJS, HTML, CSS, and have a strong proficiency in these technologies. Additionally, I am experienced in using project management tools like Jira, Bitbucket, Git, design tools like Figma, and cloud services like AWS.',
             keywords:
                 'Skills, Portfolio, Web Development, React, Node, JavaScript, NextJS, HTML, CSS, Project Management, Jira, Bitbucket, Git, Figma, AWS, Neeraj, Neeraj Vageele, Neeraj Sarang Vageele',
         },
-        '/blogs': {
-            title: 'Blogs - Senior Software Engineer |',
+        '/blog': {
+            title: 'Blog - Neeraj Sarang Vageele | Senior Software Engineer |',
             description:
                 'Explore my collection of insightful and informative blog posts on various topics related to web development, software engineering, ReactJS, TypeScript, and more. As a Senior Software Engineer, I share my knowledge and experiences through these blogs, providing valuable insights and solutions to common challenges in the industry.',
             keywords:
                 'Blogs, Articles, Portfolio, Senior Software Engineer, Web Development, Software Engineering, ReactJS, TypeScript, NextJS, NodeJS, Neeraj, Neeraj Vageele, Neeraj Sarang Vageele',
         },
         '/work': {
-            title: 'Work - Senior Software Engineer |',
+            title: 'Work - Neeraj Sarang Vageele | Senior Software Engineer |',
             description:
                 'Browse through my portfolio of work as a Senior Software Engineer specializing in Web App Development. With about 6 years of experience, I have expertise in ReactJS, JavaScript, TypeScript, NodeJS, NextJS, NestJS, ExpressJS, and AWS services.',
             keywords:
                 'Work, Portfolio, Senior Software Engineer, Web App Development, ReactJS, JavaScript, TypeScript, NodeJS, NextJS, NestJS, ExpressJS, AWS services, Neeraj, Neeraj Vageele, Neeraj Sarang Vageele',
         },
         '/work/object-detection': {
-            title: 'Work - Object Detection with TensorFlow |',
+            title: 'Work - Neeraj Sarang Vageele | Object Detection with TensorFlow |',
             description:
                 'Hello I am Neeraj Vageele, explore my work on implementing object detection using TensorFlow and TypeScript. As a Senior Software Engineer specializing in Web App Development, I have leveraged the power of TensorFlow to develop advanced computer vision models for object detection tasks. Discover how I utilize TensorFlow, TypeScript, ReactJS, and other technologies to create efficient and accurate object detection solutions.',
             keywords:
