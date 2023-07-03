@@ -53,7 +53,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 />
                 <meta
                     property='og:image'
-                    content='https://neerajvageele.com/logo-icon.svg'
+                    content='https://neerajvageele.com/small-logo.webp'
                 />
                 <meta
                     property='og:url'
