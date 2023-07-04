@@ -1,0 +1,92 @@
+@import '@styles/variable.scss';
+
+.sectionSeparator {
+    position: relative;
+    padding: 50px 0;
+
+    > div {
+        max-width: 95vw;
+        padding: 0;
+    }
+
+    .subtitle {
+        color: $primaryTextColor;
+        letter-spacing: 2px;
+        display: block;
+        line-height: 14px;
+        font-weight: $font-700;
+        text-transform: uppercase;
+        font-size: $font-14;
+    }
+
+    .featuredSection {
+        margin: 30px -25px 0 -25px;
+        > div {
+            button:nth-child(2) {
+                left: calc(1% + 1px);
+            }
+            button:nth-child(3) {
+                right: calc(1% + 1px);
+            }
+        }
+
+        li {
+            margin: 10px;
+            > div {
+                width: 100%;
+                max-width: 400px;
+                height: 100%;
+                max-height: 450px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    .sectionSeparator {
+        .featuredSection {
+            margin: 30px 20px;
+        }
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+    .sectionSeparator {
+        > div {
+            max-width: 95vw;
+            padding: 0;
+        }
+        .featuredSection {
+            margin: 15px 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .sectionSeparator {
+        h2 {
+            font-size: $font-40;
+        }
+        .subtitle {
+            font-size: $font-12;
+        }
+
+        .featuredSection {
+            margin: 0 -10px;
+
+            > div {
+                padding-right: 0;
+                padding-left: 0;
+            }
+
+            li {
+                margin: 0;
+
+                > div {
+                    padding: 10px;
+                    margin: 15px 0;
+                }
+            }
+        }
+    }
+}

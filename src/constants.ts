@@ -1,6 +1,9 @@
 export const MODEL_URL = '/models';
 export const FACE_MATCHER_THRESHOLD = 0.6;
 
+export const MEDIUM_API =
+    'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@neerajvageele451';
+
 export const VALID_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
 
 export const METADATA: {
@@ -70,5 +73,25 @@ export const METADATA: {
             'Hi I`m Neeraj Vageele. Enhance your face recognition capabilities with the powerful Face API. Unlock advanced facial analysis and identification features for improved security and personalized user experiences. Learn more at neerajvageele.com',
         keywords:
             'Work, Portfolio, Face Recognition, Face API, facial analysis, facial identification, computer vision, biometric technology, Computer Vision, Deep Learning, Convolutional Neural Networks (CNN), Facial Biometrics, Face Identification, Face Verification, Facial Landmark Detection, Face Matching, Face Embeddings, Facial Feature Extraction, Image Processing, OpenCV, TensorFlow, PyTorch, Dlib, Face Detection, Face Tracking, Age Estimation, Gender Classification, Emotion Recognition, Face Clustering, Facial Expression Analysis, Facial Attribute Analysis, Face Mask Recognition, Real-time Face Recognition, Video Analysis, Augmented Reality (AR), Privacy Protection, Security Systems, Access Control, Surveillance Systems, Biometric Authentication, Facial Re-identification, Forensic Facial Recognition, Medical Imaging, Human-Computer Interaction,',
+    },
+};
+
+export const RESPONSIVE_CAROUSEL_CONFIG = {
+    superLargeDesktop: {
+        // the naming can be any, depends on you.
+        breakpoint: { max: 4000, min: 3000 },
+        items: 5,
+    },
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 5,
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2,
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
     },
 };
