@@ -21,6 +21,21 @@
     }
 
     .featuredSection {
+        .viewAll {
+            display: flex;
+            justify-content: flex-end;
+
+            a {
+                color: $secondaryTextColor;
+                font-weight: $font-700;
+                font-size: $font-24;
+
+                &:hover {
+                    color: $primaryTextColor;
+                }
+            }
+        }
+
         margin: 30px -25px 0 -25px;
         > div {
             button:nth-child(2) {

@@ -2,18 +2,21 @@ import 'react-multi-carousel/lib/styles.css';
 import { Card } from '@components/Card/Card';
 import { RESPONSIVE_CAROUSEL_CONFIG } from '../../../constants';
 import Carousel from 'react-multi-carousel';
+import Link from 'next/link';
 import styles from './FeaturedSection.module.scss';
 
 type FeaturedSectionProps = {
     sectionName: string;
     data: Array<any>;
     title: string;
+    viewAllLink?: string;
 };
 
 export const FeaturedSection = ({
     sectionName,
     data,
     title,
+    viewAllLink,
 }: FeaturedSectionProps) => {
     return (
         <div id={`featured${sectionName}`} className={styles.sectionSeparator}>
@@ -25,6 +28,11 @@ export const FeaturedSection = ({
                     </div>
                 </div>
                 <div className={`row ${styles.featuredSection}`}>
+                    {viewAllLink && (
+                        <div className={styles.viewAll}>
+                            <Link href={viewAllLink}>View All</Link>
+                        </div>
+                    )}
                     <Carousel
                         responsive={RESPONSIVE_CAROUSEL_CONFIG}
                         infinite

@@ -51,6 +51,7 @@ export default function Home() {
                 sectionName='Blog'
                 data={blogs}
                 title='Featured Blogs'
+                viewAllLink='/blog'
             />
         </>
     );
