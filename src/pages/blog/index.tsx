@@ -22,7 +22,9 @@ export const getServerSideProps = async () => {
     return { props: { blogs: blogs.items } };
 };
 
-export default function Blogs({ blogs }: { blogs: Blog[] }) {
+type BlogProps = { blogs: Blog[] };
+
+export default function Blog({ blogs }: BlogProps) {
     return (
         <div id='blog' className={styles.sectionSeparator}>
             <div className='container'>

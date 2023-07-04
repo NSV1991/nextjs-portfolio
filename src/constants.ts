@@ -1,3 +1,8 @@
+import ObjectDetectionImage from '@assets/images/work/objectDetection.webp';
+import FaceDetectionImage from '@assets/images/work/faceDetection.webp';
+import FaceRecognitionImage from '@assets/images/work/faceRecognition.webp';
+import ElementImage from '@assets/images/work/element.webp';
+
 export const MODEL_URL = '/models';
 export const FACE_MATCHER_THRESHOLD = 0.6;
 
@@ -72,3 +77,54 @@ export const METADATA: {
             'Work, Portfolio, Face Recognition, Face API, facial analysis, facial identification, computer vision, biometric technology, Computer Vision, Deep Learning, Convolutional Neural Networks (CNN), Facial Biometrics, Face Identification, Face Verification, Facial Landmark Detection, Face Matching, Face Embeddings, Facial Feature Extraction, Image Processing, OpenCV, TensorFlow, PyTorch, Dlib, Face Detection, Face Tracking, Age Estimation, Gender Classification, Emotion Recognition, Face Clustering, Facial Expression Analysis, Facial Attribute Analysis, Face Mask Recognition, Real-time Face Recognition, Video Analysis, Augmented Reality (AR), Privacy Protection, Security Systems, Access Control, Surveillance Systems, Biometric Authentication, Facial Re-identification, Forensic Facial Recognition, Medical Imaging, Human-Computer Interaction,',
     },
 };
+
+export const RESPONSIVE_CAROUSEL_CONFIG = {
+    superLargeDesktop: {
+        breakpoint: { max: 2000, min: 1800 },
+        items: 5,
+    },
+    desktop: {
+        breakpoint: { max: 1800, min: 1400 },
+        items: 4,
+    },
+    smallDesktop: {
+        breakpoint: { max: 1400, min: 1024 },
+        items: 3,
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 550 },
+        items: 2,
+    },
+    mobile: {
+        breakpoint: { max: 550, min: 0 },
+        items: 1,
+    },
+};
+
+export const WORK_LIST = [
+    {
+        title: 'Face recognition using face-api.js',
+        category: 'Personal',
+        image: FaceRecognitionImage.src,
+        link: 'face-recognition',
+    },
+    {
+        title: 'Detect face and emotion recognition using face-api.js',
+        category: 'Personal',
+        image: FaceDetectionImage.src,
+        link: 'face-detection',
+    },
+    {
+        title: 'Detect Object from Image using TensorFlow',
+        category: 'Personal',
+        image: ObjectDetectionImage.src,
+        link: 'object-detection',
+    },
+    {
+        title: 'Element IO | Secure collaboration and messaging',
+        category: 'Open Source Contribution',
+        image: ElementImage.src,
+        link: 'https://app.element.io/',
+        absoluteLink: true,
+    },
+];
