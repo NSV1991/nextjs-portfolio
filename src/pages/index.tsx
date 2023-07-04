@@ -1,9 +1,9 @@
 import { Banner } from '@components/index';
-import { useEffect, useState } from 'react';
 import { Blog, WorkDetails } from '../commonTypes';
-import { fetchMediumBlogs } from '../utils';
-import { WORK_LIST } from '../constants';
 import { FeaturedSection } from '@components/Section/FeaturedSection/FeaturedSection';
+import { fetchMediumBlogs } from '../utils';
+import { useEffect, useState } from 'react';
+import { WORK_LIST } from '../constants';
 
 export const getStaticProps = () => {
     return {
@@ -24,7 +24,7 @@ type HomeProps = {
     workList: Array<WorkDetails[]>;
 };
 
-export default function Home({ workList }: HomeProps) {
+export default function Home() {
     const [blogs, setBlogs] = useState<Blog[]>([]);
 
     const retrieveBlogs = async () => {

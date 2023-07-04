@@ -1,23 +1,10 @@
 import { Card } from '@components/index';
 import styles from './BlogSection.module.scss';
-
-type Blog = {
-    author: string;
-    categories: Array<string>;
-    content: string;
-    description: string;
-    guid: string;
-    link: string;
-    pubDate: string;
-    thumbnail: string;
-    title: string;
-};
+import { fetchMediumBlogs } from '../../utils';
+import { Blog } from '../../commonTypes';
 
 export const getServerSideProps = async () => {
-    const MEDIUM_API =
-        'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@neerajvageele451';
-
-    const blogs = await (await fetch(MEDIUM_API)).json();
+    const blogs = await fetchMediumBlogs();
 
     return { props: { blogs: blogs.items } };
 };
@@ -31,7 +18,9 @@ export default function Blog({ blogs }: BlogProps) {
                 <div className='row'>
                     <div className='col-lg-12 text-center'>
                         <span className={styles.subtitle}>Blog</span>
-                        <h2 className='text-6xl font-bold'>Discover Blog Insights</h2>
+                        <h2 className='text-6xl font-bold'>
+                            Discover Blog Insights
+                        </h2>
                     </div>
                 </div>
                 <div className={`row ${styles.blogContainer}`}>

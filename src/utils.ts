@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { MEDIUM_API } from './constants';
 
 const useIsMobileView = () => {
     const [isMobileView, setIsMobileView] = useState(false);
@@ -21,4 +22,9 @@ const useIsMobileView = () => {
     return isMobileView;
 };
 
-export { useIsMobileView };
+const fetchMediumBlogs = async () => {
+    const blogs = await (await fetch(MEDIUM_API)).json();
+    return blogs;
+};
+
+export { fetchMediumBlogs, useIsMobileView };
