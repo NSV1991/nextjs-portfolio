@@ -9,3 +9,15 @@ export type Blog = {
     thumbnail: string;
     title: string;
 };
+
+export type WorkDetails = {
+    title: string;
+    category: string;
+    image: string;
+    link: string;
+    absoluteLink?: boolean;
+};
+
+export type WorkProps = {
+    workList: WorkDetails[];
+};

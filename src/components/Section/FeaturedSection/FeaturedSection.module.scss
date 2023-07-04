@@ -5,7 +5,8 @@
     padding: 50px 0;
 
     > div {
-        max-width: 95vw;
+        width: 95vw;
+        max-width: 2000px;
         padding: 0;
     }
 
@@ -20,6 +21,21 @@
     }
 
     .featuredSection {
+        .viewAll {
+            display: flex;
+            justify-content: flex-end;
+
+            a {
+                color: $secondaryTextColor;
+                font-weight: $font-700;
+                font-size: $font-24;
+
+                &:hover {
+                    color: $primaryTextColor;
+                }
+            }
+        }
+
         margin: 30px -25px 0 -25px;
         > div {
             button:nth-child(2) {
@@ -83,6 +99,10 @@
                 margin: 0;
 
                 > div {
+                    width: 100%;
+                    max-width: 525px;
+                    height: 100%;
+                    max-height: 450px;
                     padding: 10px;
                     margin: 15px 0;
                 }

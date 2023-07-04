@@ -1,46 +1,50 @@
-import { useEffect, useState } from 'react';
+import 'react-multi-carousel/lib/styles.css';
+import { Card } from '@components/Card/Card';
 import { RESPONSIVE_CAROUSEL_CONFIG } from '../../../constants';
 import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import { fetchMediumBlogs } from '../../../utils';
-import { Blog } from '../../../commonTypes';
+import Link from 'next/link';
 import styles from './FeaturedSection.module.scss';
-import { Card } from '@components/Card/Card';
 
 type FeaturedSectionProps = {
     sectionName: string;
+    data: Array<any>;
+    title: string;
+    viewAllLink?: string;
 };
 
-export const FeaturedSection = ({ sectionName }: FeaturedSectionProps) => {
-    const [blogs, setBlogs] = useState<Blog[]>([]);
-
-    const retrieveBlogs = async () => {
-        const blogs = await fetchMediumBlogs();
-        setBlogs(blogs?.items.slice(0, 6));
-    };
-
-    useEffect(() => {
-        retrieveBlogs();
-    }, []);
-
+export const FeaturedSection = ({
+    sectionName,
+    data,
+    title,
+    viewAllLink,
+}: FeaturedSectionProps) => {
     return (
         <div id={`featured${sectionName}`} className={styles.sectionSeparator}>
             <div className='container'>
                 <div className='row'>
                     <div className='col-lg-12 text-center'>
-                        <span className={styles.subtitle}>Blog</span>
-                        <h2>Featured Blogs</h2>
+                        <span className={styles.subtitle}>{sectionName}</span>
+                        <h2>{title}</h2>
                     </div>
                 </div>
                 <div className={`row ${styles.featuredSection}`}>
-                    <Carousel responsive={RESPONSIVE_CAROUSEL_CONFIG} infinite>
-                        {blogs?.map((blog) => (
+                    {viewAllLink && (
+                        <div className={styles.viewAll}>
+                            <Link href={viewAllLink}>View All</Link>
+                        </div>
+                    )}
+                    <Carousel
+                        responsive={RESPONSIVE_CAROUSEL_CONFIG}
+                        infinite
+                        autoPlay>
+                        {data?.map((item) => (
                             <Card
-                                key={blog.guid}
-                                image={blog.thumbnail}
-                                category={blog.categories.join(' | ')}
-                                title={blog.title}
-                                url={blog.link}
+                                key={item.key}
+                                image={item.image}
+                                category={item.category || ''}
+                                title={item.title}
+                                url={item.link}
+                                openInSamePage={item.openInSamePage}
                             />
                         ))}
                     </Carousel>
