@@ -9,4 +9,6 @@ export * from './Navigation/Navigation';
 export * from './ProgressBar/ProgressBar';
 export * from './Section/EducationSection/EducationSection';
 export * from './Section/ExperienceSection/ExperienceSection';
+export * from './Section/FeaturedSection/FeaturedSection';
+export * from './Section/ReviewSection/ReviewSection';
 export * from './Section/SkillSection/SkillSection';

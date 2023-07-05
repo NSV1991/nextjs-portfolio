@@ -1,0 +1,103 @@
+@import '@styles/variable.scss';
+
+.reviewSection {
+    margin-top: 100px;
+    padding: 20px 0;
+    border-bottom: 1px solid $borderColor;
+
+    .reviewContainer {
+        margin-top: 50px;
+        margin-bottom: 100px;
+        box-shadow: $tertiaryShadow;
+        border: 0;
+        border-radius: 10px;
+        background: $primaryGradient;
+        padding: 10px 0;
+
+        .image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                border-radius: 50%;
+                width: 100px;
+            }
+        }
+
+        .text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                max-width: 85%;
+                padding: 10px 50px;
+                text-align: justify;
+                p {
+                    font-size: $font-16;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .reviewerInfo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px;
+            p {
+                font-size: $font-20;
+                margin-bottom: 0;
+            }
+            span {
+                font-size: $font-20;
+                color: $textLight;
+            }
+        }
+    }
+}
+
+.subtitle {
+    color: $primaryTextColor;
+    letter-spacing: 2px;
+    display: block;
+    line-height: 14px;
+    font-weight: $font-700;
+    text-transform: uppercase;
+    font-size: $font-14;
+}
+
+@media only screen and (max-width: 768px) {
+    .reviewSection {
+        h2 {
+            font-size: $font-40;
+        }
+        .subtitle {
+            font-size: $font-12;
+        }
+
+        .reviewParent {
+            margin-left: 5px !important;
+            margin-right: 5px !important;
+
+            .reviewContainer {
+                .text {
+                    padding: 10px;
+
+                    div {
+                        display: -webkit-box;
+                        -webkit-line-clamp: 9;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+
+                        p {
+                            font-size: $font-16;
+                            text-align: justify;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
