@@ -35,8 +35,11 @@ export const FeaturedSection = ({
                     )}
                     <Carousel
                         responsive={RESPONSIVE_CAROUSEL_CONFIG}
+                        arrows={false}
+                        autoPlay
                         infinite
-                        autoPlay>
+                        showDots
+                        ssr>
                         {data?.map((item) => (
                             <Card
                                 key={item.key}

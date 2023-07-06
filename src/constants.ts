@@ -3,6 +3,8 @@ import FaceDetectionImage from '@assets/images/work/faceDetection.webp';
 import FaceRecognitionImage from '@assets/images/work/faceRecognition.webp';
 import ElementImage from '@assets/images/work/element.webp';
 import AnkushChavan from '@assets/images/review/ankushChavan.webp';
+import KrunalShah from '@assets/images/review/krunalShah.webp';
+import { ReviewType } from './commonTypes';
 
 export const MODEL_URL = '/models';
 export const FACE_MATCHER_THRESHOLD = 0.6;
@@ -133,7 +135,7 @@ export const WORK_LIST = [
     },
 ];
 
-export const REVIEWS = [
+export const REVIEWS: ReviewType[] = [
     {
         image: AnkushChavan,
         text: `<p>Throughout our time working together, Neeraj demonstrated an outstanding ability to grasp complex concepts swiftly and tackle challenges with remarkable problem-solving skills. His commitment to delivering high-quality work, attention to detail, and enthusiasm for taking on new responsibilities made a significant impact on our team's success.
@@ -150,5 +152,18 @@ export const REVIEWS = [
         name: 'Ankush Chavan',
         designation: 'Senior Engineer',
         company: 'Movate',
-    }
+    },
+    {
+        image: KrunalShah,
+        text: `<p>Neeraj, a highly skilled MERN stack developer whom I have had the privilege of working with for the past five years. He is an exceptional problem solver with a remarkable ability to tackle complex challenges head-on. His dedication to finding innovative solutions and his meticulous attention to detail has greatly contributed to the success of our projects. Neeraj possesses a deep understanding of the MERN stack, and his technical expertise is truly impressive.
+        
+        <p>What sets Neeraj apart is not just his technical proficiency but also his exceptional leadership and teamwork skills. He has a natural ability to inspire and guide his team, creating an environment that fosters collaboration and encourages the best ideas to flourish. Neeraj's effective communication skills ensure that everyone on the team feels heard and valued, leading to improved productivity and overall project success.
+        
+        <p>I have always been impressed by Neeraj's professionalism and his ability to handle challenging situations with calm and composure. He consistently demonstrates a high level of integrity, always striving to deliver quality work that exceeds expectations. Neeraj's commitment to continuous learning and staying up-to-date with the latest industry trends makes him a valuable asset to any organization.
+        
+        <p>In summary, Neeraj is an exceptional MERN stack developer with outstanding problem-solving skills, keen attention to detail, and strong leadership abilities. I have no doubt that he will continue to excel in his career and make significant contributions to any team or project he becomes a part of. I wholeheartedly recommend Neeraj for any opportunity that requires a highly skilled and dedicated professional.`,
+        name: 'Krunal Shah',
+        designation: 'CTO',
+        company: 'Third Rock Techkno',
+    },
 ];

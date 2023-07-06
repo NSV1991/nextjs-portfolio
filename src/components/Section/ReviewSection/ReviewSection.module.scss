@@ -1,18 +1,46 @@
 @import '@styles/variable.scss';
 
+.customModalHeading {
+    font-size: $font-26;
+}
+
+.contentImage {
+    border-radius: 50%;
+    float: left;
+    width: 125px;
+    border: 2px solid $borderColor;
+    margin-right: 10px;
+}
+.customModalContent {
+    margin: 0 0 10px 0;
+    p {
+        font-size: $font-20;
+        text-align: justify;
+    }
+}
+
 .reviewSection {
-    margin-top: 100px;
+    margin-top: 60px;
     padding: 20px 0;
     border-bottom: 1px solid $borderColor;
 
     .reviewContainer {
         margin-top: 50px;
-        margin-bottom: 100px;
+        margin-bottom: 60px;
         box-shadow: $tertiaryShadow;
         border: 0;
         border-radius: 10px;
         background: $primaryGradient;
         padding: 10px 0;
+
+        > div {
+            button:nth-child(2) {
+                left: calc(1% + 1px);
+            }
+            button:nth-child(3) {
+                right: calc(1% + 1px);
+            }
+        }
 
         .image {
             display: flex;
@@ -28,14 +56,29 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 10px;
 
-            span {
+            div {
                 max-width: 85%;
-                padding: 10px 50px;
                 text-align: justify;
                 p {
                     font-size: $font-16;
                     margin-bottom: 10px;
+                }
+            }
+        }
+
+        .readMore {
+            display: none;
+
+            button {
+                box-shadow: none;
+                background: none;
+
+                &:hover {
+                    transform: none;
+                    color: $primaryTextColor;
+                    text-decoration: underline;
                 }
             }
         }
@@ -45,7 +88,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 10px;
+            padding: 10px 10px 30px 10px;
             p {
                 font-size: $font-20;
                 margin-bottom: 0;
@@ -83,8 +126,6 @@
 
             .reviewContainer {
                 .text {
-                    padding: 10px;
-
                     div {
                         display: -webkit-box;
                         -webkit-line-clamp: 9;
@@ -96,6 +137,11 @@
                             text-align: justify;
                         }
                     }
+                }
+
+                .readMore {
+                    display: block;
+                    text-align: right;
                 }
             }
         }
