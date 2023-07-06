@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image';
+
 export type Blog = {
     author: string;
     categories: Array<string>;
@@ -18,6 +20,10 @@ export type WorkDetails = {
     absoluteLink?: boolean;
 };
 
-export type WorkProps = {
-    workList: WorkDetails[];
+export type ReviewType = {
+    image: StaticImageData;
+    text: string;
+    name: string;
+    designation: string;
+    company: string;
 };

@@ -5,6 +5,7 @@ export * from './Header/Header';
 export * from './Layout/Layout';
 export * from './Loader/Loader';
 export * from './Logo/Logo';
+export * from './Modal/Modal';
 export * from './Navigation/Navigation';
 export * from './ProgressBar/ProgressBar';
 export * from './Section/EducationSection/EducationSection';

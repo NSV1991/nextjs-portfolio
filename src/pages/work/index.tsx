@@ -1,7 +1,7 @@
 import { Card } from '@components/index';
 import styles from './WorkSamples.module.scss';
-import { WorkProps } from '../../commonTypes';
 import { WORK_LIST } from '../../constants';
+import { WorkDetails } from '../../commonTypes';
 
 export const getStaticProps = () => {
     return {
@@ -9,6 +9,10 @@ export const getStaticProps = () => {
             workList: WORK_LIST,
         },
     };
+};
+
+type WorkProps = {
+    workList: WorkDetails[];
 };
 
 export default function WorkSamples({ workList }: WorkProps) {

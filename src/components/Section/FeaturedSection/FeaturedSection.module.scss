@@ -38,6 +38,8 @@
 
         margin: 30px -25px 0 -25px;
         > div {
+            padding-bottom: 30px;
+
             button:nth-child(2) {
                 left: calc(1% + 1px);
             }

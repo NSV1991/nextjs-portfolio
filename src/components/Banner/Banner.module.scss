@@ -1,8 +1,9 @@
 @import '@styles/variable.scss';
 
 .bannerContainer {
-    padding-bottom: 30px;
+    padding-bottom: 60px;
     position: relative;
+    border-bottom: 1px solid $borderColor;
 
     .banner {
         padding-top: 50px;
