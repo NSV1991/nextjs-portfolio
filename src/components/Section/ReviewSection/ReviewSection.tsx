@@ -86,7 +86,7 @@ export const Review = () => {
                 onClose={() => setShow(false)}
                 title={
                     <h2 className={styles.customModalHeading}>
-                        {selectedReview?.name}'s Recommendations
+                        {selectedReview?.name}&apos;s Recommendations
                     </h2>
                 }
                 body={
