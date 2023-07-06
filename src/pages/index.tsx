@@ -1,6 +1,5 @@
-import { Banner } from '@components/index';
+import { Banner, FeaturedSection, Review } from '@components/index';
 import { Blog, WorkDetails } from '../commonTypes';
-import { FeaturedSection } from '@components/Section/FeaturedSection/FeaturedSection';
 import { fetchMediumBlogs } from '../utils';
 import { useEffect, useState } from 'react';
 import { WORK_LIST } from '../constants';
@@ -47,11 +46,11 @@ export default function Home() {
     return (
         <>
             <Banner />
+            <Review />
             <FeaturedSection
                 sectionName='Blog'
                 data={blogs}
                 title='Featured Blogs'
-                viewAllLink='/blog'
             />
         </>
     );

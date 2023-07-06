@@ -2,6 +2,7 @@ import ObjectDetectionImage from '@assets/images/work/objectDetection.webp';
 import FaceDetectionImage from '@assets/images/work/faceDetection.webp';
 import FaceRecognitionImage from '@assets/images/work/faceRecognition.webp';
 import ElementImage from '@assets/images/work/element.webp';
+import AnkushChavan from '@assets/images/review/ankushChavan.webp';
 
 export const MODEL_URL = '/models';
 export const FACE_MATCHER_THRESHOLD = 0.6;
@@ -130,4 +131,24 @@ export const WORK_LIST = [
         link: 'https://app.element.io/',
         absoluteLink: true,
     },
+];
+
+export const REVIEWS = [
+    {
+        image: AnkushChavan,
+        text: `<p>Throughout our time working together, Neeraj demonstrated an outstanding ability to grasp complex concepts swiftly and tackle challenges with remarkable problem-solving skills. His commitment to delivering high-quality work, attention to detail, and enthusiasm for taking on new responsibilities made a significant impact on our team's success.
+
+        <p>Neeraj consistently exhibited a positive attitude and was a valuable team player, always willing to lend a hand and share his expertise to help others succeed. His excellent communication skills ensured that everyone on the team was well-informed and on the same page, fostering a collaborative and efficient work environment.
+        
+        <p>I was particularly impressed by Neeraj's ability to remain composed under pressure and handle difficult situations with grace and maturity. His ability to maintain a clear focus on the end goal and execute tasks efficiently while navigating challenges was truly commendable.
+        
+        <p>Furthermore, Neeraj's passion for professional growth was evident in his proactive approach to learning and development. He is constantly seeking opportunities to expand his skill set and knowledge, which not only benefitted him personally but also added value to the entire team.
+        
+        <p>Neeraj Vageele is an exceptional individual who not only excels in his technical abilities but also possesses the interpersonal skills to build strong relationships with colleagues and clients alike. He positive influence on the team culture and dedication to achieving excellence make them an asset to any organization.
+        
+        <p>I have no doubt that Neeraj will continue to achieve great success in his future endeavors. It is without reservation that I highly recommend Neeraj Vageele to any prospective employer or collaborator. He will undoubtedly be a valuable addition to any team.`,
+        name: 'Ankush Chavan',
+        designation: 'Senior Engineer',
+        company: 'Movate',
+    }
 ];
