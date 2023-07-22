@@ -10,7 +10,7 @@ import {
     matchDimensions,
     resizeResults,
 } from 'face-api.js';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import { Button, Loader } from '@components/index';
@@ -37,7 +37,7 @@ export default function FaceRecognition() {
         refImgElements.current[index] = ref;
     };
 
-    const processImagesForRecognition = async () => {
+    const processImagesForRecognition = useCallback(async () => {
         if (!dataSetImages) return;
         setIsLoading(true);
         setLoaderMsg('Please wait while images are being processed...');
@@ -66,7 +66,7 @@ export default function FaceRecognition() {
 
         setFaceMatcher(faceMatcher);
         setIsLoading(false);
-    };
+    }, [dataSetImages]);
 
     const loadRecognizedFaces = async () => {
         if (dataSetImages.length === 0) {
@@ -168,7 +168,7 @@ export default function FaceRecognition() {
         if (dataSetImages?.length > 0) {
             processImagesForRecognition();
         }
-    }, [dataSetImages]);
+    }, [dataSetImages, processImagesForRecognition]);
 
     return (
         <>
