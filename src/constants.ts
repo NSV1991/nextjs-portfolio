@@ -4,6 +4,7 @@ import FaceRecognitionImage from '@assets/images/work/faceRecognition.webp';
 import ElementImage from '@assets/images/work/element.webp';
 import AnkushChavan from '@assets/images/review/ankushChavan.webp';
 import KrunalShah from '@assets/images/review/krunalShah.webp';
+import AffanJilani from '@assets/images/review/affanJilani.webp';
 import { ReviewType } from './commonTypes';
 
 export const MODEL_URL = '/models';
@@ -165,5 +166,16 @@ export const REVIEWS: ReviewType[] = [
         name: 'Krunal Shah',
         designation: 'CTO',
         company: 'Third Rock Techkno',
+    },
+    {
+        image: AffanJilani,
+        text: `<p>I had the pleasure of directly working with Neeraj when I was running a tech start up. His technical proficiency and extensive knowledge of web development was felt immediately throughout the company, as he single handedly increased the rate at which we were developing features. His attention to detail, his knowledge of best practices, as well as his resourcefulness set the tone for the entire development team.
+
+        <p>Beyond his technical proficiency, his ability to communicate complex design decisions and break down use cases were an additional asset that enabled development to be cohesive and organic. Furthermore, his amazing and personable attitude made working with him a treat.
+        
+        ,p>Any company would be extremely fortunate to have Neeraj on their team.`,
+        name: 'Affan Jilani',
+        designation: 'Co-Founder',
+        company: 'Joyn',
     },
 ];
