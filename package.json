@@ -29,9 +29,13 @@
     "react-dom": "18.2.0",
     "react-multi-carousel": "^2.8.4",
     "sharp": "^0.32.0",
+    "simple-peer": "^9.11.1",
+    "socket.io": "^4.7.1",
+    "socket.io-client": "^4.5.2",
     "typescript": "5.0.2"
   },
   "devDependencies": {
+    "@types/simple-peer": "^9.11.5",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "sass": "^1.61.0",
