@@ -1,11 +1,15 @@
-import ObjectDetectionImage from '@assets/images/work/objectDetection.webp';
+import { Certificate, ReviewType } from './commonTypes';
+
+import AffanJilani from '@assets/images/review/affanJilani.webp';
+import AnkushChavan from '@assets/images/review/ankushChavan.webp';
+import ElementImage from '@assets/images/work/element.webp';
 import FaceDetectionImage from '@assets/images/work/faceDetection.webp';
 import FaceRecognitionImage from '@assets/images/work/faceRecognition.webp';
-import ElementImage from '@assets/images/work/element.webp';
-import AnkushChavan from '@assets/images/review/ankushChavan.webp';
+import JavaScriptBasicCertificate from '@assets/images/certificates/javaScriptBasicCertificate.webp';
+import JavaScriptIntermediateCertificate from '@assets/images/certificates/javaScriptIntermediateCertificate.webp';
 import KrunalShah from '@assets/images/review/krunalShah.webp';
-import AffanJilani from '@assets/images/review/affanJilani.webp';
-import { ReviewType } from './commonTypes';
+import ObjectDetectionImage from '@assets/images/work/objectDetection.webp';
+import ReactBasicCertificate from '@assets/images/certificates/reactBasicCertificate.webp';
 
 export const MODEL_URL = '/models';
 export const FACE_MATCHER_THRESHOLD = 0.6;
@@ -177,5 +181,90 @@ export const REVIEWS: ReviewType[] = [
         name: 'Affan Jilani',
         designation: 'Co-Founder',
         company: 'Joyn',
+    },
+];
+
+export const SKILLS = [
+    {
+        id: 1,
+        skill: 'React',
+        rating: '90%',
+    },
+    {
+        id: 2,
+        skill: 'Node',
+        rating: '75%',
+    },
+    {
+        id: 3,
+        skill: 'JavaScript',
+        rating: '70%',
+    },
+    {
+        id: 4,
+        skill: 'NextJS',
+        rating: '70%',
+    },
+    {
+        id: 5,
+        skill: 'HTML',
+        rating: '70%',
+    },
+    {
+        id: 6,
+        skill: 'CSS',
+        rating: '60%',
+    },
+];
+
+export const PROJECT_TOOLS = [
+    {
+        id: 11,
+        skill: 'Jira',
+        rating: '90%',
+    },
+    {
+        id: 12,
+        skill: 'Bitbucket',
+        rating: '95%',
+    },
+    {
+        id: 13,
+        skill: 'Git',
+        rating: '95%',
+    },
+    {
+        id: 14,
+        skill: 'Figma',
+        rating: '70%',
+    },
+    {
+        id: 15,
+        skill: 'AWS',
+        rating: '70%',
+    },
+];
+
+export const CERTIFICATES: Array<Certificate> = [
+    {
+        id: '1a60eb81e197',
+        image: ReactBasicCertificate,
+        issuedBy: 'HackerRank',
+        title: 'React (Basic)',
+        url: 'https://www.hackerrank.com/certificates/1a60eb81e197',
+    },
+    {
+        id: '472eb4d222cb',
+        image: JavaScriptIntermediateCertificate,
+        issuedBy: 'HackerRank',
+        title: 'JavaScript (Intermediate)',
+        url: 'https://www.hackerrank.com/certificates/472eb4d222cb',
+    },
+    {
+        id: '97c7b57bdbf2',
+        image: JavaScriptBasicCertificate,
+        issuedBy: 'HackerRank',
+        title: 'JavaScript (Basic)',
+        url: 'https://www.hackerrank.com/certificates/97c7b57bdbf2',
     },
 ];
