@@ -27,3 +27,11 @@ export type ReviewType = {
     designation: string;
     company: string;
 };
+
+export type Certificate = {
+    id: number | string;
+    image: StaticImageData | string;
+    issuedBy: string;
+    title: string;
+    url: string;
+};

@@ -1,68 +1,28 @@
-import { ProgressBar } from '@components/ProgressBar/ProgressBar';
+import { ProgressBar } from '@components/index';
+import { GetStaticProps } from 'next';
+import { PROJECT_TOOLS, SKILLS } from '../../constants';
 import styles from './SkillSection.module.scss';
 
-export const SkillSection = () => {
-    const webDevelopmentSkill = [
-        {
-            id: 1,
-            skill: 'React',
-            rating: '90%',
-        },
-        {
-            id: 2,
-            skill: 'Node',
-            rating: '75%',
-        },
-        {
-            id: 3,
-            skill: 'JavaScript',
-            rating: '70%',
-        },
-        {
-            id: 4,
-            skill: 'NextJS',
-            rating: '70%',
-        },
-        {
-            id: 5,
-            skill: 'HTML',
-            rating: '70%',
-        },
-        {
-            id: 6,
-            skill: 'CSS',
-            rating: '60%',
-        },
-    ];
+type Skills = Array<{
+    id: number;
+    skill: string;
+    rating: string;
+}>;
 
-    const projectTools = [
-        {
-            id: 11,
-            skill: 'Jira',
-            rating: '90%',
-        },
-        {
-            id: 12,
-            skill: 'Bitbucket',
-            rating: '95%',
-        },
-        {
-            id: 13,
-            skill: 'Git',
-            rating: '95%',
-        },
-        {
-            id: 14,
-            skill: 'Figma',
-            rating: '70%',
-        },
-        {
-            id: 15,
-            skill: 'AWS',
-            rating: '70%',
-        },
-    ];
+export const getStaticProps: GetStaticProps<{
+    skills: Skills;
+    tools: Skills;
+}> = async () => {
+    return { props: { skills: SKILLS, tools: PROJECT_TOOLS } };
+};
 
+export default function Skills({
+    skills,
+    tools,
+}: {
+    skills: Skills;
+    tools: Skills;
+}) {
     return (
         <div id='skill' className={styles.skillSection}>
             <div className='container'>
@@ -82,7 +42,7 @@ export const SkillSection = () => {
                         <div className='col-lg-6 col-md-6 col-12 mb-5'>
                             <span className={styles.subtitle}>Features</span>
                             <h4>Web development</h4>
-                            {webDevelopmentSkill.map((data) => (
+                            {skills.map((data) => (
                                 <ProgressBar
                                     title={data.skill}
                                     value={data.rating}
@@ -94,7 +54,7 @@ export const SkillSection = () => {
                             <span className={styles.subtitle}>Features</span>
                             <h4>Project Management Tools</h4>
 
-                            {projectTools.map((data) => (
+                            {tools.map((data) => (
                                 <ProgressBar
                                     title={data.skill}
                                     value={data.rating}
@@ -107,4 +67,4 @@ export const SkillSection = () => {
             </div>
         </div>
     );
-};
+}
