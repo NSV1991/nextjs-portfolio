@@ -10,6 +10,7 @@ import JavaScriptIntermediateCertificate from '@assets/images/certificates/javaS
 import KrunalShah from '@assets/images/review/krunalShah.webp';
 import ObjectDetectionImage from '@assets/images/work/objectDetection.webp';
 import ReactBasicCertificate from '@assets/images/certificates/reactBasicCertificate.webp';
+import FrontendDevelopmentCertificate from '@assets/images/certificates/introToFrontendDevelopment.webp';
 
 export const MODEL_URL = '/models';
 export const FACE_MATCHER_THRESHOLD = 0.6;
@@ -246,6 +247,13 @@ export const PROJECT_TOOLS = [
 ];
 
 export const CERTIFICATES: Array<Certificate> = [
+    {
+        id: 'SRPS34ABTGXM',
+        image: FrontendDevelopmentCertificate,
+        issuedBy: 'Meta',
+        title: 'Introduction to Front-End Development',
+        url: 'https://www.coursera.org/account/accomplishments/certificate/SRPS34ABTGXM',
+    },
     {
         id: '1a60eb81e197',
         image: ReactBasicCertificate,
