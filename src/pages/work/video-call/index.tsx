@@ -1,93 +1,168 @@
+import React, { useEffect, useRef, useState } from 'react';
+import io, { Socket } from 'socket.io-client';
+import SimplePeer from 'simple-peer';
 import { Button } from '@components/index';
-import { useEffect, useRef, useState } from 'react';
-import io from 'socket.io-client';
+import { useRouter } from 'next/router';
 
-const VideoCall = () => {
-    const videoElement = useRef<HTMLVideoElement>(null);
-    const remoteVideoElement = useRef<HTMLVideoElement>(null);
+const VideoCall: React.FC = () => {
+    const router = useRouter();
 
-    const [room, setRoom] = useState<string>();
-    let socket: any;
-    const localStreamConstraints = {
-        audio: true,
-        video: true,
+    const [signalData, setSignalData] = useState<string>('');
+    const localVideoRef = useRef<HTMLVideoElement>(null);
+    const remoteVideoRef = useRef<HTMLVideoElement>(null);
+    const [roomId, setRoomId] = useState<string>('');
+
+    const [localStream, setLocalStream] = useState<MediaStream>();
+    const [remoteStream, setRemoteStream] = useState<MediaStream>();
+    const [socket, setSocket] = useState<Socket | null>(null);
+
+    useEffect(() => {
+        const newSocket = io({
+            path: '/api/socket',
+        });
+
+        newSocket.on('connect', () => {
+            console.log('connected');
+        });
+        setSocket(newSocket);
+        return () => {
+            socket?.disconnect();
+        };
+    }, []);
+
+    const handleLeaveRoom = () => {
+        const roomName = 'example-room';
+        socket?.emit('leaveRoom', roomName);
+        console.log('Left room:', roomName);
     };
 
-    const getMediaStream = async (): Promise<MediaStream> => {
+    const startVideoCall = async () => {
         try {
-            const mediaStream = await navigator.mediaDevices.getUserMedia({
+            if (!socket) {
+                console.log('startVideoCall socket is not initialized');
+                return;
+            }
+
+            const stream = await navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true,
             });
-            return mediaStream;
+            setLocalStream(stream);
+
+            const peer = new SimplePeer({
+                initiator: true,
+                trickle: false,
+            });
+
+            peer.on('signal', (offer) => {
+                socket.emit('makeCall', { offer, to: 'recipient-client-id' }); // Replace 'recipient-client-id' with the id of the client you want to call
+            });
+
+            peer.on('stream', (stream) => {
+                setRemoteStream(stream);
+            });
+
+            socket.on('incomingCall', (data) => {
+                peer.signal(data.offer);
+            });
+
+            socket.on('callAccepted', (data) => {
+                peer.signal(data.offer);
+            });
+
+            socket.on('userDisconnected', () => {
+                peer.destroy();
+                setRemoteStream(undefined);
+            });
         } catch (error) {
             console.error('Error accessing media devices:', error);
-            throw error;
         }
     };
 
-    // Function to display the user's media stream in a video element
-    const displayMediaStream = (
-        mediaStream: MediaStream,
-        videoElement: HTMLVideoElement
-    ): void => {
-        videoElement.srcObject = mediaStream;
+    const handleCallAccepted = (offer: string | SimplePeer.SignalData) => {
+        if (!socket) {
+            console.log('handleCallAccepted socket is not initialized');
+            return;
+        }
+
+        const peer = new SimplePeer({
+            initiator: false,
+            trickle: false,
+        });
+
+        peer.on('signal', (answer) => {
+            socket.emit('callUser', { answer, to: 'caller-client-id' }); // Replace 'caller-client-id' with the id of the caller client
+        });
+
+        peer.on('stream', (stream) => {
+            setRemoteStream(stream);
+        });
+
+        peer.signal(offer);
+
+        setSocket((prevSocket) => {
+            // Remove the event listener for 'incomingCall'
+            prevSocket?.off('incomingCall');
+            return prevSocket;
+        });
+
+        socket.on('userDisconnected', () => {
+            peer.destroy();
+            setRemoteStream(undefined);
+        });
     };
 
-    // Function to handle errors if media stream access is denied by the user
-    const handleMediaStreamError = (error: any): void => {
-        console.error('Error accessing media stream:', error);
-    };
-
-    // Main function to start the media capture and display the stream
-    const startMediaCapture = async () => {
-        try {
-            const mediaStream = await getMediaStream();
-            displayMediaStream(
-                mediaStream,
-                videoElement.current as HTMLVideoElement
-            );
-        } catch (error) {
-            handleMediaStreamError(error);
+    const hangUp = () => {
+        socket?.emit('hangUp');
+        if (localStream) {
+            const tracks = localStream.getTracks();
+            tracks.forEach((track) => track.stop());
+            setLocalStream(undefined);
         }
     };
 
-    const joinRoom = () => {
-        if (room !== '') {
-            socket.emit('create or join', room);
-            console.log('Attempted to create or  join room', room);
+    const handleJoinRoom = () => {
+        if (roomId) {
+            socket?.emit('join-room', roomId);
+            router.push(`video-call/room/${roomId}`);
         }
     };
 
     return (
-        <>
-            <h1>Media Capture Example</h1>
-            <input
-                type='text'
-                onChange={(event) => setRoom(event.target.value)}
-            />
-            <Button variant='primary' onClick={() => joinRoom()}>
-                Join Room
-            </Button>
-            <div className='h-100' id='video_display'>
-                <div id='video_container' className='align-items-center'>
-                    <div className='local_div' id='div1'>
-                        <video
-                            ref={videoElement}
-                            autoPlay
-                            muted
-                            playsInline></video>
-                    </div>
-                    <div className='remote_div' id='div2'>
-                        <video
-                            ref={remoteVideoElement}
-                            autoPlay
-                            playsInline></video>
-                    </div>
-                </div>
+        <div>
+            <div>
+                {localStream && (
+                    <video
+                        style={{ width: '50%', margin: '1rem' }}
+                        autoPlay
+                        muted
+                        ref={(ref) => {
+                            if (ref) {
+                                ref.srcObject = localStream;
+                            }
+                        }}
+                    />
+                )}
+                {remoteStream && (
+                    <video
+                        style={{ width: '50%', margin: '1rem' }}
+                        autoPlay
+                        ref={remoteVideoRef}
+                    />
+                )}
             </div>
-            {/* <video ref={videoElement} autoPlay playsInline></video> */}
-        </>
+            <div>
+                <input
+                    type='text'
+                    value={roomId}
+                    onChange={(e) => setRoomId(e.target.value)}
+                    placeholder='Enter Room Name'
+                />
+                <Button variant='primary' onClick={handleJoinRoom}>
+                    Join Room
+                </Button>
+            </div>
+        </div>
     );
 };
 
