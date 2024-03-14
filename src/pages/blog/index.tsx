@@ -27,7 +27,11 @@ export default function Blog({ blogs }: BlogProps) {
                     {blogs?.map((blog) => (
                         <Card
                             key={blog.guid}
-                            image={blog.thumbnail}
+                            image={
+                                blog.description.match(
+                                    /<img[^>]+src="([^">]+)"/
+                                )?.[1] || ''
+                            }
                             category={blog.categories.join(' | ')}
                             title={blog.title}
                             url={blog.link}

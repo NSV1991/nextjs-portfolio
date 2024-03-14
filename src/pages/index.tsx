@@ -31,7 +31,7 @@ export default function Home() {
 
         const formattedData = blogs.items.slice(0, 6).map((blog: Blog) => ({
             key: blog.guid,
-            image: blog.thumbnail,
+            image: blog.description.match(/<img[^>]+src="([^">]+)"/)?.[1] || '',
             category: blog.categories.join(' | '),
             title: blog.title,
             link: blog.link,
